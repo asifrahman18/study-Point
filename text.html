@@ -23,28 +23,28 @@
         margin-top: 0;
       }
 
-      .user-list {
-        list-style-type: none;
-        padding: 0;
+      table {
+        width: 100%;
+        border-collapse: collapse;
       }
 
-      .user-list-item {
-        display: flex;
-        align-items: center;
+      th,
+      td {
+        padding: 10px;
+        text-align: left;
         border-bottom: 1px solid #ccc;
-        padding: 10px 0;
       }
 
-      .user-list-item:last-child {
-        border-bottom: none;
+      th {
+        background-color: #f2f2f2;
       }
 
       .user-avatar {
-        width: 50px;
-        height: 50px;
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
         overflow: hidden;
-        margin-right: 20px;
+        margin-right: 10px;
       }
 
       .user-avatar img {
@@ -65,27 +65,32 @@
   <body>
     <div class="container">
       <h2>User List</h2>
-      <ul class="user-list">
-        <li class="user-list-item">
-          <div class="user-avatar">
-            <img src="user1-avatar.jpg" alt="User 1 Avatar" />
-          </div>
-          <div class="user-info">
-            <div class="user-name">John Doe</div>
-            <div class="user-email">john.doe@example.com</div>
-          </div>
-        </li>
-        <li class="user-list-item">
-          <div class="user-avatar">
-            <img src="user2-avatar.jpg" alt="User 2 Avatar" />
-          </div>
-          <div class="user-info">
-            <div class="user-name">Jane Smith</div>
-            <div class="user-email">jane.smith@example.com</div>
-          </div>
-        </li>
-        <!-- Add more user list items as needed -->
-      </ul>
+      <table>
+        <thead>
+          <tr>
+            <th>Avatar</th>
+            <th>Name</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="user-avatar">
+              <img src="user1-avatar.jpg" alt="User 1 Avatar" />
+            </td>
+            <td class="user-name">John Doe</td>
+            <td class="user-email">john.doe@example.com</td>
+          </tr>
+          <tr>
+            <td class="user-avatar">
+              <img src="user2-avatar.jpg" alt="User 2 Avatar" />
+            </td>
+            <td class="user-name">Jane Smith</td>
+            <td class="user-email">jane.smith@example.com</td>
+          </tr>
+          <!-- Add more user rows as needed -->
+        </tbody>
+      </table>
     </div>
   </body>
 </html>
