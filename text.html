@@ -1,65 +1,151 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Verification Page</title>
+    <title>Vertical Panel</title>
     <style>
       body {
-        background-color: #f2f2f2;
+        background-color: #111;
+        margin: 0;
+        padding: 0;
+        color: #fff;
+        font-family: Arial, sans-serif;
       }
+
       .container {
-        max-width: 500px;
-        margin: 50px auto;
+        display: flex;
+      }
+
+      .sidebar {
+        background-color: #333;
+        width: 200px;
         padding: 20px;
-        background-color: #ffffff;
-        border-radius: 5px;
       }
-      h1 {
-        text-align: center;
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
       }
-      label {
-        display: block;
+
+      li {
         margin-bottom: 10px;
-      }
-      input[type="text"],
-      textarea {
-        width: 100%;
+        border: 1px solid #fff;
         padding: 8px;
-        border-radius: 3px;
-        border: 1px solid #ccc;
-      }
-      button {
-        display: block;
-        width: 100%;
-        padding: 10px;
-        background-color: #4caf50;
-        color: #ffffff;
-        border: none;
-        border-radius: 3px;
         cursor: pointer;
+      }
+
+      a {
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .content {
+        flex: 1;
+        padding: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+      .card {
+        background-color: #fdeded2a;
+        color: #fff;
+        padding: 20px;
+        /* width: calc(33% - 20px); */
+        width: 280px;
+        margin-bottom: 20px;
+        transition: transform 0.3s;
+        perspective: 1000px;
+      }
+
+      .card:hover {
+        transform: scale(1.03);
+        cursor: pointer;
+      }
+
+      .panel {
+        display: none;
+        padding: 20px;
+        background-color: #555;
+      }
+
+      .panel h2 {
+        margin-top: 0;
+      }
+      p,
+      h2 {
+        text-align: center;
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <h1>Verification Page</h1>
-      <form>
-        <label for="years">Years of Experience:</label>
-        <input type="text" id="years" name="years" required />
-
-        <label for="qualifications">Qualifications:</label>
-        <input type="text" id="qualifications" name="qualifications" required />
-
-        <label for="specialization">Specialization:</label>
-        <input type="text" id="specialization" name="specialization" required />
-
-        <label for="previous">Previous Experience:</label>
-        <textarea id="previous" name="previous" rows="4" required></textarea>
-
-        <label for="skills">Other Skills:</label>
-        <textarea id="skills" name="skills" rows="4" required></textarea>
-
-        <button type="submit">Verify</button>
-      </form>
+      <div class="sidebar" id="left-sidebar">
+        <p>Personal</p>
+        <ul>
+          <li><a href="#" data-panel="panel1">Team 1</a></li>
+          <li><a href="#" data-panel="panel2">Team 2</a></li>
+          <li><a href="#" data-panel="panel3">Team 3</a></li>
+          <li><a href="#" data-panel="panel4">Team 4</a></li>
+          <li><a href="#" data-panel="panel5">Team 5</a></li>
+          <li>
+            <a href="#" data-panel="panel5"><p>Add New Team</p></a>
+          </li>
+        </ul>
+      </div>
+      <div class="content">
+        <div class="card">
+          <h2>Card 1</h2>
+          <p>Content for Card 1 goes here.</p>
+        </div>
+        <div class="card">
+          <h2>Card 2</h2>
+          <p>Content for Card 2 goes here.</p>
+        </div>
+        <div class="card">
+          <h2>Card 3</h2>
+          <p>Content for Card 3 goes here.</p>
+        </div>
+      </div>
+      <div class="sidebar" id="right-sidebar">
+        <div id="panel1" class="panel">
+          <h2>Panel 1</h2>
+          <p>Content for Panel 1 goes here.</p>
+        </div>
+        <div id="panel2" class="panel">
+          <h2>Panel 2</h2>
+          <p>Content for Panel 2 goes here.</p>
+        </div>
+        <div id="panel3" class="panel">
+          <h2>Panel 3</h2>
+          <p>Content for Panel 3 goes here.</p>
+        </div>
+        <div id="panel4" class="panel">
+          <h2>Panel 4</h2>
+          <p>Content for Panel 4 goes here.</p>
+        </div>
+        <div id="panel5" class="panel">
+          <h2>Panel 5</h2>
+          <p>Content for Panel 5 goes here.</p>
+        </div>
+      </div>
     </div>
+
+    <script>
+      document
+        .getElementById("left-sidebar")
+        .addEventListener("click", function (event) {
+          if (event.target.matches("a")) {
+            var panelId = event.target.dataset.panel;
+            var panel = document.getElementById(panelId);
+            var panels = document.getElementsByClassName("panel");
+            for (var i = 0; i < panels.length; i++) {
+              panels[i].style.display = "none";
+            }
+            panel.style.display = "block";
+          }
+        });
+    </script>
   </body>
 </html>
