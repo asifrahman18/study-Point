@@ -1,82 +1,89 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Student Profile</title>
-  <style>
+  <head>
+    <title>Student Profile</title>
+    <style>
+      body {
+        background: linear-gradient(135deg, #71b7e6, #9b59b6);
+      }
+      .container {
+        max-height: 800px;
+        max-width: 800px;
+        margin-top: 5%;
+        margin-left: 25%;
+        padding: 20px;
+        background-image: url(Image/Student_Background.jpg);
+        background-size: cover;
+        background-position: center;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        text-align: center;
+      }
 
-    .container {
-      max-height: 800px;
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-      background-image: url(Image/Student_Background.jpg);
-      background-size: cover;
-      background-position: center;
-      border-radius: 5px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-      text-align:center;
-    } 
+      h1 {
+        color: #333;
+      }
 
-    h1 {
-      color: #333;
-    }
-    
-    .profile-img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      margin: 20px auto;
-      border: 5px solid #fff;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    }
-    
-    .name {
-      font-size: 24px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-    
-    .info {
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
-    
-    .btn {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #ff69b4; /* Pink color */
-      color: #fff;
-      text-decoration: none;
-      border-radius: 5px;
-      margin: 10px;
-      transition: background-color 0.3s ease-in-out;
-    }
-    
-    .btn:hover {
-      background-color: #ff1493; /* Darker pink color on hover */
-    }
-    
-    .btn-primary {
-      background-color: #4169e1; /* Royal blue color */
-    }
-    
-    .btn-primary:hover {
-      background-color: #1e90ff; /* Darker blue color on hover */
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1>Student Profile</h1>
-    <h2>ID:110</h2>
-    <img src="C:\xampp\htdocs\E-learning Platform\cse327Project\Image\student-profile.jpg" alt="Profile Picture" class="profile-img">
-    
-    <div class="name">Johnathon Wick</div>
-    <div class="info">Mail: john123@gmail.com</div>
-    <div class="info">Gender: Male</div>
-    
-    <a href="#" class="btn">Edit Profile</a>
-    <a href="#" class="btn btn-primary">Delete Profile</a>
-  </div>
-</body>
+      .profile-img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin: 20px auto;
+        border: 5px solid #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      .name {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .info {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #ff69b4; /* Pink color */
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        margin: 10px;
+        transition: background-color 0.3s ease-in-out;
+      }
+
+      .btn:hover {
+        background-color: #ff1493; /* Darker pink color on hover */
+      }
+
+      .btn-primary {
+        background-color: #4169e1; /* Royal blue color */
+      }
+
+      .btn-primary:hover {
+        background-color: #1e90ff; /* Darker blue color on hover */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Student Profile</h1>
+      <h2>ID:110</h2>
+      <img
+        src="C:\xampp\htdocs\E-learning Platform\cse327Project\Image\student-profile.jpg"
+        alt="Profile Picture"
+        class="profile-img"
+      />
+
+      <div class="name">Johnathon Wick</div>
+      <div class="info">Mail: john123@gmail.com</div>
+      <div class="info">Gender: Male</div>
+
+      <a href="#" class="btn">Edit Profile</a>
+      <a href="#" class="btn btn-primary">Delete Profile</a>
+    </div>
+  </body>
 </html>

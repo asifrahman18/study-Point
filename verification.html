@@ -4,7 +4,7 @@
     <title>Verification Page</title>
     <style>
       body {
-        background-color: #f2f2f2;
+        background: linear-gradient(135deg, #71b7e6, #9b59b6);
       }
       .container {
         max-width: 500px;
@@ -31,18 +31,35 @@
         display: block;
         width: 100%;
         padding: 10px;
-        background-color: #4caf50;
+        background-color: #1e41db;
         color: #ffffff;
         border: none;
-        border-radius: 3px;
+        border-radius: 5px;
         cursor: pointer;
+      }
+      input[type="file"] {
+        display: inline;
+        margin-bottom: 10px;
+      }
+
+      input[type="submit"] {
+        display: inline;
+        border: none;
+        padding: 5px;
+        background-color: #4c82af;
+        color: #fff;
+        text-align: center;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 5px;
       }
     </style>
   </head>
   <body>
     <div class="container">
       <h1>Verification Page</h1>
-      <form>
+      <form action="#">
         <label for="years">Years of Experience:</label>
         <input type="text" id="years" name="years" required />
 
@@ -53,10 +70,14 @@
         <input type="text" id="specialization" name="specialization" required />
 
         <label for="previous">Previous Experience:</label>
-        <textarea id="previous" name="previous" rows="4" required></textarea>
+        <textarea id="previous" name="previous" rows="3" required></textarea>
 
         <label for="skills">Other Skills:</label>
-        <textarea id="skills" name="skills" rows="4" required></textarea>
+        <textarea id="skills" name="skills" rows="3" required></textarea>
+
+        <label for="documents">Upload Documents:</label>
+        <input type="file" name="fileToUpload" id="fileToUpload" />
+        <input type="submit" value="Upload" />
 
         <button type="submit">Verify</button>
       </form>

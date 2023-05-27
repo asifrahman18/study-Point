@@ -1,149 +1,227 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr">
   <head>
-    <title>Vertical Panel</title>
+    <meta charset="UTF-8" />
+    <title>Registration Form</title>
     <style>
-      body {
-        background-color: #111;
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
+
+      * {
         margin: 0;
         padding: 0;
-        color: #fff;
-        font-family: Arial, sans-serif;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        display: flex;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        background: linear-gradient(135deg, #71b7e6, #9b59b6);
       }
 
       .container {
-        display: flex;
+        max-width: 700px;
+        width: 100%;
+        background: #fff;
+        padding: 25px 30px;
+        border-radius: 5px;
       }
 
-      .sidebar {
-        background-color: #333;
-        width: 200px;
-        padding: 20px;
+      .container .title {
+        font-size: 25px;
+        font-weight: 500;
+        position: relative;
       }
 
-      ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
+      .container .title::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 3px;
+        width: 30px;
+        background: linear-gradient(135deg, #71b7e6, #9b59b6);
       }
 
-      li {
-        margin-bottom: 10px;
-        border: 1px solid #fff;
-        padding: 8px;
-        cursor: pointer;
-      }
-
-      a {
-        color: #fff;
-        text-decoration: none;
-        cursor: pointer;
-      }
-
-      .content {
-        flex: 1;
-        padding: 20px;
+      .container form .user-details {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+        margin: 20px 0 12px 0;
       }
 
-      .card {
-        background-color: #fdeded2a;
+      form .user-details .input-box {
+        margin-bottom: 15px;
+        width: calc(100% / 2 - 20px);
+      }
+
+      .user-details .input-box details {
+        display: block;
+        font-weight: 500;
+        margin-bottom: 5px;
+      }
+
+      .user-details .input-box input {
+        height: 45px;
+        width: 100%;
+        outline: none;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        padding-left: 15px;
+        font-size: 16px;
+        border-bottom-width: 2px;
+        transition: all 0.3s ease;
+      }
+
+      .user-details .input-box input:focus,
+      .user-details .input-box input:valid {
+        border-color: #9b59b6;
+      }
+
+      /* form .gender-details .gender-title {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+form .gender-details .category {
+  display: flex;
+  width: 80%;
+  margin: 14px 0;
+  justify-content: space-between;
+}
+
+.gender-details .category label {
+  display: flex;
+  align-items: center;
+} */
+
+      /* .gender-details .category .dot {
+  height: 18px;
+  width: 18px;
+  background: #d9d9d9;
+  border-radius: 50%;
+  margin-right: 10px;
+  border: 5px solid transparent;
+  transition: all 0.3s ease;
+}
+
+#dot-1:checked ~ .category label .dot-one,
+#dot-2:checked ~ .category label .dot-two {
+  border-color: #d9d9d9;
+  background: #9b59b6;
+} */
+
+      /* form input[type="radio"] {
+  display: none;
+} */
+
+      .button {
+        height: 30px;
+        width: 100px;
+        margin-left: 45%;
+        outline: none;
         color: #fff;
-        padding: 20px;
-        /* width: calc(33% - 20px); */
-        width: 280px;
-        margin-bottom: 20px;
-        transition: transform 0.3s;
-        perspective: 1000px;
-      }
-
-      .card:hover {
-        transform: scale(1.03);
+        border: none;
+        font-size: 18px;
+        font-weight: 500;
+        border-radius: 5px;
+        letter-spacing: 1px;
+        background: linear-gradient(135deg, #71b7e6, #9b59b6);
         cursor: pointer;
       }
 
-      .panel {
-        display: none;
-        padding: 20px;
-        background-color: #555;
+      .button:hover {
+        background: linear-gradient(135deg, #9b59b6, #71b7e6);
+        border: 1px solid black;
+        transform: scale(1.1);
+        transition: 0.3s;
       }
-
-      .panel h2 {
-        margin-top: 0;
-      }
-      p,
-      h2 {
-        text-align: center;
+      #errorText {
+        color: red;
+        font-size: 14px;
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <div class="sidebar" id="left-sidebar">
-        <p>Personal</p>
-        <ul>
-          <li><a href="#" data-panel="panel1">Team 1</a></li>
-          <li><a href="#" data-panel="panel2">Team 2</a></li>
-          <li><a href="#" data-panel="panel3">Team 3</a></li>
-          <li><a href="#" data-panel="panel4">Team 4</a></li>
-          <li><a href="#" data-panel="panel5">Team 5</a></li>
-          <li>
-            <a href="#" data-panel="panel5"><p>Add New Team</p></a>
-          </li>
-        </ul>
-      </div>
-      <div class="content">
-        <div class="card">
-          <h2>Card 1</h2>
-          <p>Content for Card 1 goes here.</p>
+      <div class="title">Registration</div>
+      <form action="#">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Full Name</span>
+            <input type="text" placeholder="Enter Your Name" required />
+          </div>
+          <div class="input-box">
+            <span class="details">Register As:</span>
+            <form>
+              <label for="user-role"></label>
+              <select id="user-role" name="user-role">
+                <option value="student">Student</option>
+                <option value="teacher">Teacher</option>
+              </select>
+            </form>
+          </div>
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="email" placeholder="Enter Your email" required />
+          </div>
+          <div class="input-box">
+            <span class="details">Phone Number</span>
+            <input
+              type="text"
+              id="phone"
+              placeholder="Enter Your number"
+              required
+            />
+            <p id="errorText"></p>
+            <!-- Added error message element -->
+          </div>
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="password" placeholder="Enter Your password" required />
+          </div>
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input
+              type="password"
+              placeholder="Confirm your Password"
+              required
+            />
+          </div>
         </div>
-        <div class="card">
-          <h2>Card 2</h2>
-          <p>Content for Card 2 goes here.</p>
+        <div class="gender-details">
+          <span class="details">Gender:</span>
+          <form>
+            <label for="gender"></label>
+            <select id="gender" name="gender">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </form>
         </div>
-        <div class="card">
-          <h2>Card 3</h2>
-          <p>Content for Card 3 goes here.</p>
+        <div id="details">
+          <input type="submit" class="button" value="Register" />
         </div>
-      </div>
-      <div class="sidebar" id="right-sidebar">
-        <div id="panel1" class="panel">
-          <h2>Panel 1</h2>
-          <p>Content for Panel 1 goes here.</p>
-        </div>
-        <div id="panel2" class="panel">
-          <h2>Panel 2</h2>
-          <p>Content for Panel 2 goes here.</p>
-        </div>
-        <div id="panel3" class="panel">
-          <h2>Panel 3</h2>
-          <p>Content for Panel 3 goes here.</p>
-        </div>
-        <div id="panel4" class="panel">
-          <h2>Panel 4</h2>
-          <p>Content for Panel 4 goes here.</p>
-        </div>
-        <div id="panel5" class="panel">
-          <h2>Panel 5</h2>
-          <p>Content for Panel 5 goes here.</p>
-        </div>
-      </div>
+      </form>
     </div>
 
     <script>
       document
-        .getElementById("left-sidebar")
-        .addEventListener("click", function (event) {
-          if (event.target.matches("a")) {
-            var panelId = event.target.dataset.panel;
-            var panel = document.getElementById(panelId);
-            var panels = document.getElementsByClassName("panel");
-            for (var i = 0; i < panels.length; i++) {
-              panels[i].style.display = "none";
-            }
-            panel.style.display = "block";
+        .querySelector("button")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          var phoneInput = document.getElementById("phone");
+          var phone = phoneInput.value;
+          var errorText = document.getElementById("errorText");
+
+          if (phone.length !== 11) {
+            errorText.innerText = "Phone number must be exactly 11 digits.";
+          } else {
+            // Perform registration or further actions
+            console.log("Registration successful!");
           }
         });
     </script>
