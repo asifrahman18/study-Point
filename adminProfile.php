@@ -61,7 +61,10 @@ include('connect.php');
                                             class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="adminTeacher.php">Teachers</a>
+                                    <a class="nav-link" href="inboxAdmin.php">Inbox</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="viewTeacher.php">Teachers</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="viewStudent.php">Students</a>

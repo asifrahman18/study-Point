@@ -124,9 +124,9 @@ include('connect.php');
             </div>
 
             <div class="boxx">
-                <p class="seat">Remove a student?</p>
-                <form name="f2" action="viewStudent.php" method="POST">
-                    <label class="seat">Enter Student ID</label>
+                <p class="seat">Remove a teacher?</p>
+                <form name="f2" action="viewTeacher.php" method="POST">
+                    <label class="seat">Enter Teacher ID</label>
                     <br />
                     <input type="text" name="bid" required />
                     <br />
@@ -143,7 +143,7 @@ include('connect.php');
 
                     $user = $_POST['bid'];
                     
-                    $sql = "SELECT * FROM student WHERE S_ID = $user";
+                    $sql = "SELECT * FROM teacher WHERE T_ID = $user";
                     
                     $result = mysqli_query($conn , $sql);
                     $count = mysqli_num_rows($result);
@@ -151,14 +151,16 @@ include('connect.php');
                     if($count==1)
                     {
 
-                    $sql2 = "DELETE FROM student WHERE S_ID = $user";
+                    $sql2 = "DELETE FROM teacher WHERE T_ID = $user";
+
                     $result2 = mysqli_query($conn , $sql2);
+
                     
-                    echo "<script>window.location.href='viewStudent.php?deletion_confirm'</script>";
+                    echo "<script>window.location.href='viewTeacher.php?deletion_confirm'</script>";
                     }
                     else
                     {
-                    echo "error";
+                    echo "You are not enrolled in this course";
                     }
                     
                     
@@ -168,15 +170,16 @@ include('connect.php');
             <table class="zigzag" id="tabl">
                 <thead>
                     <tr>
-                        <th class="headr"><b>Student ID</b></th>
-                        <th class="headr"><b>Student Name</b></th>
+                        <th class="headr"><b>Teacher ID</b></th>
+                        <th class="headr"><b>Teacher Name</b></th>
                         <th class="headr"><b>Email</b></th>
+                        <th class="headr"><b>Status</b></th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
                       
-                      $query = "SELECT S_ID, Name, Mail FROM student WHERE 1";
+                      $query = "SELECT T_ID, Name, Mail, status FROM teacher WHERE 1";
                       
                       $data = mysqli_query($conn,$query);
                       $row = mysqli_fetch_array($data, MYSQLI_ASSOC); 
@@ -187,9 +190,10 @@ include('connect.php');
                       while($row = $result->fetch_assoc()) { ?>
 
                     <tr>
-                        <td><?php echo  $row["S_ID"]; ?></td>
+                        <td><?php echo  $row["T_ID"]; ?></td>
                         <td><?php echo  $row["Name"]; ?></td>
                         <td><?php echo  $row["Mail"]; ?></td>
+                        <td><?php echo  $row["status"]; ?></td>
 
                     </tr>
 
@@ -197,7 +201,7 @@ include('connect.php');
                           
                       }
                       } else {
-                      echo "No Student available";
+                      echo "No teacher available";
                       }
       
                       exit();

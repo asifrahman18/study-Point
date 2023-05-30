@@ -79,11 +79,15 @@ include('connect.php');
 
                     <?php
                     
-                            $id = $_SESSION['teacherID'];
-                            $sql = "SELECT * FROM enrolls WHERE S_ID = $id and Status = 'Enrolled'";
+                            $mail = $_SESSION['mail'];
+                            $sql = "SELECT * FROM teacher WHERE mail = '$mail'";
                         
                             $result = mysqli_query($conn , $sql);
                             $count = mysqli_num_rows($result);
+                            $row = $result->fetch_assoc();
+
+                            $status = $row['status'];
+                            $id = $row['T_ID'];
                     
                     ?>
                     <div class="banner-text">
@@ -91,58 +95,26 @@ include('connect.php');
                         <br>
                         <h2><?php echo $_SESSION['name'] ?></h2>
                         <h6><?php echo $_SESSION['mail'] ?></h6>
-                        <h5>Teacher ID: <?php echo $_SESSION['teacherID'] ?></h5>
+                        <h5>Teacher ID: <?php echo $id ?></h5>
                         <?php
-                        if($count>=1){
+                        if($status == 'unverified'){
                         ?>
-                        <h5>You are created <a href="teacherCourse.php"><?php echo $count ?> courses</a></h5>
+                        <h5>You are not verified yet</h5>
                         <?php
                         }
-                        else{
-                        ?>
+                        else if ($status == 'verified') {
+                            $sql = "SELECT status FROM teacher WHERE mail = $mail";
+                        
+                            $result = mysqli_query($conn , $sql);
+                            $count = mysqli_num_rows($result);
+
+                            if($count == 0)
+                            ?>
                         <h5>You are currently do not have any courses. <a href="createCourse.php">Create Now</a></h5>
                         <?php
                         }
+                        
                         ?>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="service-cat">
-            <div class="overlay"></div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h2 class="title">WHAT WE HAVE</h2>
-                        <div class="cat-icon">
-                            <ul>
-                                <li>
-                                    <a href="course2.php?value=science">
-                                        <i class="fa fa-desktop"></i> <br />
-                                        <p>SCIENCE</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="course2.php?value=commerce">
-                                        <i class="fa fa-desktop"></i><br />
-                                        <p>COMMERCE</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="course2.php?value=arts">
-                                        <i class="fa fa-desktop"></i><br />
-                                        <p>ARTS</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="course2.php?value=others">
-                                        <i class="fa fa-desktop"></i><br />
-                                        <p>General</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
             </div>

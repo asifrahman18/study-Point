@@ -1,0 +1,73 @@
+/* google fonts 
+
+- montserrat
+- bebasneue
+- alfaslab
+ 
+*/
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
+/* global css */
+* {
+  margin: 0;
+  padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+input,
+button {
+  font-family: "Open Sans", sans-serif;
+}
+a,
+a:hover {
+  text-decoration: none;
+}
+
+/**********************************
+	 header part css here 
+***********************************/
+
+body {
+  background: url(https://c4.wallpaperflare.com/wallpaper/24/23/796/portrait-display-vertical-pattern-digital-art-wallpaper-preview.jpg);
+  background-size: cover;
+
+  /* background: rgb(76, 255, 28);
+  background: radial-gradient(
+    circle,
+    rgba(76, 255, 28, 0.39957981483609073) 0%,
+    rgba(219, 255, 40, 0.39677869438791147) 50%,
+    rgba(113, 255, 131, 0.40238093528427) 100%
+  ); */
+}
+.navbar {
+  padding: 25px 0;
+}
+.nav-link {
+  color: rgb(0, 0, 0) !important;
+  font-size: 18px;
+  font-weight: 500;
+  margin-left: 40px;
+}
+
+.nav-link:hover {
+  scale: 1.1;
+  transition: 0.5s;
+  text-decoration: underline;
+}
+
+#s-out:hover {
+  border: 1px solid white;
+  transition: 0.5s;
+  background-color: rgba(255, 0, 0, 0.5);
+}
+
+.navbar-brand {
+  color: rgb(81, 105, 43) !important;
+  font-weight: 600;
+  font-size: 24px;
+}
