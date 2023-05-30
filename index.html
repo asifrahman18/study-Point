@@ -126,83 +126,67 @@
     </div>
     <!--  about me section code end from here -->
 
-    <!-- service type section start from here -->
-    <div class="service-cat">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <h2 class="title">WHAT WE SUGGEST</h2>
-            <div class="cat-icon">
-              <ul>
-                <li>
-                  <a href="">
-                    <i class="fa fa-desktop"></i> <br />
-                    <p>SCIENCE</p>
-                  </a>
-                </li>
-                <li>
-                  <a href="">
-                    <i class="fa fa-desktop"></i><br />
-                    <p>COMMERCE</p>
-                  </a>
-                </li>
-                <li>
-                  <a href="">
-                    <i class="fa fa-desktop"></i><br />
-                    <p>ARTS</p>
-                  </a>
-                </li>
-                <li>
-                  <a href="">
-                    <i class="fa fa-desktop"></i><br />
-                    <p>ENGLISH</p>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <!-- service cat section -->
-      </div>
-    </div>
-    <!-- service type section end from here -->
+    <?php
 
-    <!-- service count section start from here -->
-    <!-- <div class="service-count">
+    $sql = "select * FROM student WHERE 1";
+        
+    $result = mysqli_query($conn , $sql);
+    $count = mysqli_num_rows($result);
+
+    $stu = $count;
+
+
+    $sql2 = "select * FROM teacher WHERE 1";
+        
+    $result2 = mysqli_query($conn , $sql2);
+    $count2 = mysqli_num_rows($result2);
+
+    $teach = $count2;
+
+
+
+    $sql3 = "select * FROM course WHERE 1";
+        
+    $result3 = mysqli_query($conn , $sql3);
+    $count3 = mysqli_num_rows($result3);
+
+    $cor = $count3;
+
+
+?>
+    <div class="service-count">
       <div class="container">
         <div class="row">
           <div class="col-md-3">
             <div class="count-info">
-              <h1 class="counter">3204</h1>
+              <h1 class="counter"><?php echo $stu ?></h1>
               <div class="line"></div>
               <p>STUDENT ENROLLED</p>
             </div>
           </div>
           <div class="col-md-3">
             <div class="count-info">
-              <h1 class="counter">120</h1>
+              <h1 class="counter"><?php echo $teach ?></h1>
               <div class="line"></div>
               <p>TEACHER ENROLLED</p>
             </div>
           </div>
           <div class="col-md-3">
             <div class="count-info">
-              <h1 class="counter">12</h1>
+              <h1 class="counter"><?php echo $cor ?></h1>
               <div class="line"></div>
               <p>COURSES</p>
             </div>
           </div>
           <div class="col-md-3">
             <div class="count-info">
-              <h1 class="counter">1200</h1>
+              <h1 class="counter">8</h1>
               <div class="line"></div>
               <p>GRADUATES</p>
             </div>
           </div>
         </div>
       </div>
-    </div> -->
-    <!-- service count section end from here -->
+    </div>
   </body>
 </html>
