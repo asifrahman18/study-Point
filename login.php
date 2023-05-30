@@ -362,19 +362,34 @@ include('connect.php');
 
                         echo "<script>window.location.href='adminProfile.php'</script>";
                     }
-                    else
+                    else if ($count == 0)
                     {
-                        echo "<h1><center></center> Login failed. Invalid username or password.</h1>"; 
+                        $sql = "select *from teacher where Mail = '$username' and Pass = '$password'";
+                    
+                        $result = mysqli_query($conn , $sql);
+                        $count = mysqli_num_rows($result);
+                        $row = $result->fetch_assoc();
+                        if($count==1)
+                        {
+                            $_SESSION['teacherID'] = $row['T_ID'];
+                            $_SESSION['teacherpass'] = $row['Pass'];
+                            $_SESSION['mail'] = $row['Mail'];
+                            $_SESSION['name'] = $row['Name'];
+
+                            echo "<script>window.location.href='teacherProfile.php'</script>";
+                        }
+                        else {
+                            ?>
+
+    <script>
+    alert("Wrong Credentials. Try Again");
+    </script>
+
+    <?php
+                        }
                     }
                 }
-
-                else {
-                    echo "<h1><center></center> Login failed. Invalid username or password.</h1>"; 
-                }
-
-                
-
-                }
+            }
 
 
         

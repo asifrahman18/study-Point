@@ -58,8 +58,11 @@ include('connect.php');
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav ml-auto">
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="studentprofile2.php">Home <span
+                                    <a class="nav-link" href="teacherProfile.php">Home <span
                                             class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="teachers.php">Inbox</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="teachers.php">My Courses</a>
@@ -76,7 +79,7 @@ include('connect.php');
 
                     <?php
                     
-                            $id = $_SESSION['userID'];
+                            $id = $_SESSION['teacherID'];
                             $sql = "SELECT * FROM enrolls WHERE S_ID = $id and Status = 'Enrolled'";
                         
                             $result = mysqli_query($conn , $sql);
@@ -88,16 +91,16 @@ include('connect.php');
                         <br>
                         <h2><?php echo $_SESSION['name'] ?></h2>
                         <h6><?php echo $_SESSION['mail'] ?></h6>
-                        <h5>Student ID: <?php echo $_SESSION['userID'] ?></h5>
+                        <h5>Teacher ID: <?php echo $_SESSION['teacherID'] ?></h5>
                         <?php
                         if($count>=1){
                         ?>
-                        <h5>You are enrolled in <a href="stdcourse.php"><?php echo $count ?> courses</a></h5>
+                        <h5>You are created <a href="teacherCourse.php"><?php echo $count ?> courses</a></h5>
                         <?php
                         }
                         else{
                         ?>
-                        <h5>You are currently not enrolled in any courses. <a href="courses.php">Enroll Now</a></h5>
+                        <h5>You are currently do not have any courses. <a href="createCourse.php">Create Now</a></h5>
                         <?php
                         }
                         ?>

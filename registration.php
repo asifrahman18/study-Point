@@ -4,195 +4,401 @@ include('connect.php');
 ?>
 
 <!DOCTYPE html>
-
-<html lang="en" dir="ltr">
+<!-- Coding By CodingNepal - codingnepalweb.com -->
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <title>Registration Form</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
     <style>
-    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
 
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: "Poppins", sans-serif;
+        font-family: 'Poppins', sans-serif;
     }
 
     body {
-        /* display: flex;
-        height: 100vh;
-        justify-content: center;
+        min-height: 100vh;
+        display: flex;
         align-items: center;
-        padding: 10px; */
-        background: linear-gradient(135deg, #71b7e6, #9b59b6);
+        justify-content: center;
+        background: #4070f4;
     }
 
     .container {
-        margin-left: 29%;
-        margin-top: 5%;
-        max-width: 700px;
-        width: 100%;
-        background: #fff;
-        padding: 25px 30px;
-        border-radius: 5px;
-    }
-
-    .container .title {
-        font-size: 25px;
-        font-weight: 500;
         position: relative;
+        max-width: 900px;
+        width: 100%;
+        border-radius: 6px;
+        padding: 30px;
+        margin: 0 15px;
+        background-color: #fff;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     }
 
-    .container .title::before {
+    .container header {
+        position: relative;
+        font-size: 20px;
+        font-weight: 600;
+        color: #333;
+    }
+
+    .container header::before {
         content: "";
         position: absolute;
         left: 0;
-        bottom: 0;
+        bottom: -2px;
         height: 3px;
-        width: 30px;
-        background: linear-gradient(135deg, #71b7e6, #9b59b6);
+        width: 27px;
+        border-radius: 8px;
+        background-color: #4070f4;
     }
 
-    .container form .user-details {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        margin: 20px 0 12px 0;
+    .container form {
+        position: relative;
+        margin-top: 16px;
+        min-height: 490px;
+        background-color: #fff;
+        overflow: hidden;
     }
 
-    form .user-details .input-box {
-        margin-bottom: 15px;
-        width: calc(100% / 2 - 20px);
+    .container form .form {
+        position: absolute;
+        background-color: #fff;
+        transition: 0.3s ease;
     }
 
-    .user-details .input-box details {
+    .container form .form.second {
+        opacity: 0;
+        pointer-events: none;
+        transform: translateX(100%);
+    }
+
+    form.secActive .form.second {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateX(0);
+    }
+
+    form.secActive .form.first {
+        opacity: 0;
+        pointer-events: none;
+        transform: translateX(-100%);
+    }
+
+    .container form .title {
         display: block;
-        font-weight: 500;
-        margin-bottom: 5px;
-    }
-
-    .user-details .input-box input {
-        height: 45px;
-        width: 100%;
-        outline: none;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-        padding-left: 15px;
+        margin-bottom: 8px;
         font-size: 16px;
-        border-bottom-width: 2px;
-        transition: all 0.3s ease;
+        font-weight: 500;
+        margin: 6px 0;
+        color: #333;
     }
 
-    .user-details .input-box input:focus,
-    .user-details .input-box input:valid {
-        border-color: #9b59b6;
+    .container form .fields {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
     }
 
-    .button {
-        height: 30px;
-        width: 100px;
-        margin-left: 45%;
+    form .fields .input-field {
+        display: flex;
+        width: calc(100% / 3 - 15px);
+        flex-direction: column;
+        margin: 4px 0;
+    }
+
+    .input-field label {
+        font-size: 12px;
+        font-weight: 500;
+        color: #2e2e2e;
+    }
+
+    .input-field input,
+    select {
+        outline: none;
+        font-size: 14px;
+        font-weight: 400;
+        color: #333;
+        border-radius: 5px;
+        border: 1px solid #aaa;
+        padding: 0 15px;
+        height: 42px;
+        margin: 8px 0;
+    }
+
+    .input-field input :focus,
+    .input-field select:focus {
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.13);
+    }
+
+    .input-field select,
+    .input-field input[type="date"] {
+        color: #707070;
+    }
+
+    .input-field input[type="date"]:valid {
+        color: #333;
+    }
+
+    .container form button,
+    .backBtn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 45px;
+        max-width: 200px;
+        width: 100%;
+        border: none;
         outline: none;
         color: #fff;
-        border: none;
-        font-size: 18px;
-        font-weight: 500;
         border-radius: 5px;
-        letter-spacing: 1px;
-        background: linear-gradient(135deg, #71b7e6, #9b59b6);
+        margin: 25px 0;
+        background-color: #4070f4;
+        transition: all 0.3s linear;
         cursor: pointer;
     }
 
-    .button:hover {
-        background: linear-gradient(135deg, #9b59b6, #71b7e6);
-        border: 1px solid black;
-        transform: scale(1.1);
-        transition: 0.8s;
+    .container form .btnText {
+        font-size: 14px;
+        font-weight: 400;
     }
 
-    #link {
-        color: white !important;
-        font-weight: 600;
-        font-size: 24px;
-        margin-left: 13%;
-        text-decoration: none;
+    form button:hover {
+        background-color: #265df2;
     }
 
-    #link:hover {
-        text-decoration: underline;
+    .nextBtn {
+        background-color: #265df2;
+        margin: 0 6px;
+        margin-right: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 45px;
+        max-width: 200px;
+        width: 100%;
+        border: none;
+        outline: none;
+        color: #fff;
+        border-radius: 5px;
+        margin: 25px 0;
+        background-color: #4070f4;
+        transition: all 0.3s linear;
+        cursor: pointer;
     }
 
-    .signup_link a {
-        color: #2691d9;
-        text-decoration: none;
+    .nextBtn:hover {
+        background-color: #7453ce;
     }
 
-    .signup_link a:hover {
-        text-decoration: underline;
+    form button i,
+    form .backBtn i {
+        margin: 0 6px;
+    }
+
+
+    form .backBtn i {
+        transform: rotate(180deg);
+    }
+
+    form .buttons {
+        display: flex;
+        align-items: center;
+    }
+
+    form .buttons button,
+    .backBtn {
+        margin-right: 14px;
+    }
+
+    @media (max-width: 750px) {
+        .container form {
+            overflow-y: scroll;
+        }
+
+        .container form::-webkit-scrollbar {
+            display: none;
+        }
+
+        form .fields .input-field {
+            width: calc(100% / 2 - 15px);
+        }
+    }
+
+    @media (max-width: 550px) {
+        form .fields .input-field {
+            width: 100%;
+        }
     }
     </style>
-    <meta name="viewport" content="width=devce-width, initial-scale=1.0" />
+
+    <title>Regisration</title>
 </head>
 
 <body>
-    <a href="index.html" id="link">জীবন যুদ্ধ</a>
     <div class="container">
-        <div class="title">Registration</div>
-        <form action="#">
-            <div class="user-details">
-                <div class="input-box">
-                    <span class="details">Full Name</span>
-                    <input type="text" placeholder="Enter Your Name" required />
+        <header>Registration</header>
+
+        <form action="registration.php" method="post">
+            <div class="form first">
+                <div class="details personal">
+                    <span class="title">Personal Details</span>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Name</label>
+                            <input type="text" name="user" placeholder="Enter your name" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Email</label>
+                            <input type="text" name="mail" placeholder="Enter your email" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Register As</label>
+                            <select name="role" required>
+                                <option disabled selected>Select</option>
+                                <option>student</option>
+                                <option>teacher</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Password</label>
+                            <input type="password" name="pass" placeholder="Enter password" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Conform Password</label>
+                            <input type="password" name="conf" placeholder="Conform password" required>
+                        </div>
+
+
+                        <div class="input-field">
+                            <label>Mobile Number</label>
+                            <!-- <input type="number" name="phone" placeholder="Enter mobile number" required> -->
+                            <input type="tel" id="phone" name="phone" placeholder="01XXXXXXXXX"
+                                pattern="[0]{1}[1]{1}[0-9]{9}">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Gender</label>
+                            <select name="gender" required>
+                                <option disabled selected>Select gender</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                            </select>
+                        </div>
+
+                        <input type="submit" class="nextBtn" name="submit" value="Register" />
+
+                    </div>
                 </div>
-                <div class="input-box">
-                    <span class="details">Register As:</span>
-                    <form>
-                        <label for="user-role"></label>
-                        <select id="user-role" name="user-role">
-                            <option value="student">Student</option>
-                            <option value="teacher">Teacher</option>
-                        </select>
-                    </form>
-                </div>
-                <div class="input-box">
-                    <span class="details">Email</span>
-                    <input type="email" placeholder="Enter Your email" required />
-                </div>
-                <div class="input-box">
-                    <span class="details">Phone Number</span>
-                    <input type="text" id="phone" placeholder="Enter Your number" required />
-                </div>
-                <div class="input-box">
-                    <span class="details">Password</span>
-                    <input type="password" placeholder="Enter Your password" required />
-                </div>
-                <div class="input-box">
-                    <span class="details">Confirm Password</span>
-                    <input type="password" placeholder="Confrim your Password" required />
-                </div>
-            </div>
-            <div class="gender-details">
-                <span class="details">Gender:</span>
-                <form>
-                    <label for="gender"></label>
-                    <select id="gender" name="gender">
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                    </select>
-                </form>
-            </div>
-            <div id="details">
-                <input type="submit" class="button" value="Register" />
-            </div>
-            <br />
-            <div class="signup_link">
-                Already Have An Account?
-                <a href="login.html">Login</a>
-            </div>
         </form>
     </div>
+
+    <?php
+
+        if(isset($_POST['submit']))
+        {
+
+
+            if($_POST['pass'] == $_POST['conf']){
+
+            
+            $username = $_POST['user'];  
+            $password = $_POST['pass'];
+            $email = $_POST['mail'];
+            $gen = $_POST['gender'];
+            $phone = $_POST['phone'];
+            $role = $_POST['role'];
+
+
+            $sql = "select *from $role where Mail = '$email'";
+            $result = mysqli_query($conn, $sql);  
+            $row = mysqli_fetch_array($result, MYSQLI_ASSOC);  
+            $count = mysqli_num_rows($result);  
+            
+            if($count == 1){  
+                echo "<h1><center> User Already Exist </center></h1>";  
+            }  
+            else{ 
+
+                if($role == 'student'){
+                    
+                    $sql = "INSERT INTO student (S_ID, Name, Mail, Gender, Pass) VALUES (NULL, '$username', '$email', '$gen', '$password');";
+                    $result = mysqli_query($conn, $sql);
+
+                    $sql = "select *from student where Mail = '$email' and Pass = '$password'";
+
+                    $result = mysqli_query($conn , $sql);
+                    $count = mysqli_num_rows($result);
+                    $row = $result->fetch_assoc();
+                    if($count==1)
+                    {
+                        $_SESSION['userID'] = $row['S_ID'];
+                        $_SESSION['password'] = $row['Pass'];
+                        $_SESSION['mail'] = $row['Mail'];
+                        $_SESSION['name'] = $row['Name'];
+        
+                        echo "<script>window.location.href='studentProfile2.php'</script>";
+                    }
+                    else
+                    {
+                        echo "<h1><center></center> Login failed. Invalid username or password.</h1>"; 
+                    }
+                }
+                    
+                else if($role == 'teacher'){
+                    
+                    $sql = "INSERT INTO teacher (T_ID, Name, Mail, Ph_No, Specialization, Pass, status) VALUES (NULL, '$username', '$email', '$phone', NULL, '$password', 'unverified');";
+                    $result = mysqli_query($conn, $sql);
+
+                    $sql = "select *from teacher where Mail = '$email'";
+
+                    $result = mysqli_query($conn , $sql);
+                    $count = mysqli_num_rows($result);
+                    $row = $result->fetch_assoc();
+                    if($count==1)
+                    {
+                        $_SESSION['userID'] = $row['T_ID'];
+                        $_SESSION['password'] = $row['Pass'];
+                        $_SESSION['mail'] = $row['Mail'];
+                        $_SESSION['name'] = $row['Name'];
+                        $_SESSION['status'] = $row['status'];
+        
+                        echo "<script>window.location.href='verification.php'</script>";
+                    }
+                    else
+                    {
+                        echo "<h1><center></center> Login failed. Invalid username or password.</h1>"; 
+                    }
+                    $conn->close();
+                }
+
+                }
+            }
+        
+
+        else{
+            ?>
+    <script>
+    alert("Passwords do not match. Please try again")
+    </script>
+    <?php
+        }
+    }
+
+    ?>
 </body>
 
 </html>

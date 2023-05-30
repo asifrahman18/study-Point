@@ -1,3 +1,8 @@
+<?php
+session_start();
+include('connect.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,7 +64,7 @@
                                     <a class="nav-link" href="adminTeacher.php">Teachers</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="adminStudent.php">Students</a>
+                                    <a class="nav-link" href="viewStudent.php">Students</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" id="s-out" href="index.php">Sign Out</a>
