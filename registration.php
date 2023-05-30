@@ -28,7 +28,7 @@ include('connect.php');
         display: flex;
         align-items: center;
         justify-content: center;
-        background: #4070f4;
+        background-image: url('https://wallpaperaccess.com/full/2785178.jpg');
     }
 
     .container {
@@ -38,7 +38,7 @@ include('connect.php');
         border-radius: 6px;
         padding: 30px;
         margin: 0 15px;
-        background-color: #fff;
+        background-color: white;
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     }
 

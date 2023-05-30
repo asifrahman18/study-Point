@@ -94,11 +94,13 @@ include('connect.php');
             <label for="skills">Other Skills:</label>
             <textarea id="skills" name="skills" rows="3" required></textarea>
 
-            <label for="documents">Upload Documents:</label>
-            <input type="file" name="fileToUpload" id="fileToUpload" />
-            <input type="submit" value="Upload" />
+            <!-- <form action="insert.php" method="post" enctype="multipart/form-data">
+                <label for="documents">Upload Documents:</label>
+                <input type="file" name="pdf" id="fileToUpload" required />
+                <input type="submit" value="Upload" />
+            </form> -->
 
-            <input type="submit" id="btnn" name="submit" value="Proceed To Verify" />
+            <input type="submit" id="btnn" name="submit" value="Submit and Proceed" />
         </form>
     </div>
 
@@ -131,13 +133,12 @@ include('connect.php');
                       $spec = $_POST['special'];
                       $prev = $_POST['previous'];
                       $other = $_POST['skills'];
-                      $pdf = $_POST['years'];
 
                             $sql = "INSERT INTO verification (experience, qualification, specialization, prevExp, other, pdf, mail) VALUES ('$exp', '$qual', '$spec', '$prev', '$other', NULL , '$mail');";
 
-                            $result = mysqli_query($conn, $sql);
+                            // $result = mysqli_query($conn, $sql);
 
-                            echo "<script>window.location.href='teacherProfile.php'</script>";
+                            echo "<script>window.location.href='insert.php'</script>";
 
 
       }

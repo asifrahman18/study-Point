@@ -94,7 +94,7 @@ include('connect.php');
                 <div class="row">
                     <div class="col-md-12">
                         <nav class="navbar navbar-expand-lg navbar-light">
-                            <a class="navbar-brand" href="#">জীবন যুদ্ধ | Teachers List</a>
+                            <a class="navbar-brand" href="#">STUDY POINT | Admin</a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse"
                                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                                 aria-expanded="false" aria-label="Toggle navigation">
@@ -136,7 +136,7 @@ include('connect.php');
             </div>
 
 
-            <!-- student delete -->
+            <!-- Course Enroll -->
 
             <?php
                 if(isset($_POST['bking'])){
@@ -170,10 +170,10 @@ include('connect.php');
             <table class="zigzag" id="tabl">
                 <thead>
                     <tr>
-                        <th class="headr"><b>Teacher ID</b></th>
-                        <th class="headr"><b>Teacher Name</b></th>
-                        <th class="headr"><b>Email</b></th>
-                        <th class="headr"><b>Status</b></th>
+                        <th class="headr"><b>Course ID</b></th>
+                        <th class="headr"><b>Course Name</b></th>
+                        <th class="headr"><b>Category</b></th>
+                        <th class="headr"><b>Description</b></th>
                     </tr>
                 </thead>
                 <tbody>
