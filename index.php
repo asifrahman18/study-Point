@@ -167,9 +167,9 @@ include('connect.php');
                 </div>
                 <div class="col-md-3">
                     <div class="count-info">
-                        <h1 class="counter">8</h1>
+                        <h1 class="counter">4</h1>
                         <div class="line"></div>
-                        <p>GRADUATES</p>
+                        <p>CATEGORIES</p>
                     </div>
                 </div>
             </div>

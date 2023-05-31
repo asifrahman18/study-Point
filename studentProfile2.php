@@ -62,10 +62,10 @@ include('connect.php');
                                             class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="viewCourse.php">My Courses</a>
+                                    <a class="nav-link" href="#">My Courses</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="courses.php">Course List</a>
+                                    <a class="nav-link" href="#">Course List</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" id="s-out" href="index.php">Sign Out</a>
@@ -97,7 +97,7 @@ include('connect.php');
                         }
                         else{
                         ?>
-                        <h5>You are currently not enrolled in any courses. <a href="courses.php">Enroll Now</a></h5>
+                        <h5>You are currently not enrolled in any courses. <a href="#">Enroll Now</a></h5>
                         <?php
                         }
                         ?>
@@ -115,25 +115,25 @@ include('connect.php');
                         <div class="cat-icon">
                             <ul>
                                 <li>
-                                    <a href="course2.php?value=science">
+                                    <a href="course2.php?value=engineering">
                                         <i class="fa fa-desktop"></i> <br />
                                         <p>ENGINEERING</p>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="course2.php?value=commerce">
+                                    <a href="course2.php?value=business">
                                         <i class="fa fa-desktop"></i><br />
                                         <p>BUSINESS</p>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="course2.php?value=arts">
+                                    <a href="course2.php?value=medical">
                                         <i class="fa fa-desktop"></i><br />
                                         <p>MEDICAL</p>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="course2.php?value=others">
+                                    <a href="course2.php?value=general">
                                         <i class="fa fa-desktop"></i><br />
                                         <p>GENERAL</p>
                                     </a>
