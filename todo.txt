@@ -9,14 +9,22 @@ Add:
     Student: Edit profile
     Student: View/Download course material
 
+-----------------------------------------------------------------------------------------------------
+
     Teacher: Course profile
     Teacher: Upload course material
     Teacher: My course list
     Teacher: Inbox
     Teacher: Edit Profile
+    Teacher: Delete course
+
+------------------------------------------------------------------------------------------------------
+
+    Admin: Delete Course
 
 
 Fix:
 
     - Users registering with same email for different CATEGORIES
     - Check session before loading page
+    - Upload new database SQL file
