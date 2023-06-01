@@ -1,6 +1,13 @@
 <?php
 session_start();
 include('connect.php');
+
+$_SESSION['userID'] = NULL;
+$_SESSION['password'] = NULL;
+$_SESSION['teacherID'] = NULL;
+$_SESSION['teacherpass'] = NULL;
+$_SESSION['adminID'] = NULL;
+$_SESSION['adminpass'] = NULL;
 ?>
 
 

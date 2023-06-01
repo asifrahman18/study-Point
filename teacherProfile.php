@@ -62,13 +62,13 @@ include('connect.php');
                                             class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="teachers.php">Inbox</a>
+                                    <a class="nav-link" href="teacherInbox.php">Inbox</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="teachers.php">My Courses</a>
+                                    <a class="nav-link" href="#">My Courses</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="courses.php">Edit Profile</a>
+                                    <a class="nav-link" href="#">Edit Profile</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" id="s-out" href="index.php">Sign Out</a>
@@ -99,7 +99,7 @@ include('connect.php');
                         <?php
                         if($status == 'unverified'){
                         ?>
-                        <h5>You are not verified yet</h5>
+                        <h5>You are not verified yet. Check status <a href="teacherInbox.php">Here</a></h5>
                         <?php
                         }
                         else if ($status == 'verified') {

@@ -28,3 +28,4 @@ Fix:
     - Users registering with same email for different CATEGORIES
     - Check session before loading page
     - Upload new database SQL file
+

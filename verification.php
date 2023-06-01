@@ -136,7 +136,10 @@ include('connect.php');
 
                             $sql = "INSERT INTO verification (experience, qualification, specialization, prevExp, other, pdf, mail) VALUES ('$exp', '$qual', '$spec', '$prev', '$other', NULL , '$mail');";
 
-                            // $result = mysqli_query($conn, $sql);
+                            $sql2 = "UPDATE teacher SET Specialization = '$spec' WHERE Mail = '$mail';";
+
+                            $result = mysqli_query($conn, $sql);
+                            $result = mysqli_query($conn , $sql2);
 
                             echo "<script>window.location.href='insert.php'</script>";
 

@@ -124,9 +124,9 @@ include('connect.php');
             </div>
 
             <div class="boxx">
-                <p class="seat">Remove a teacher?</p>
+                <p class="seat">Enroll in a course?</p>
                 <form name="f2" action="viewTeacher.php" method="POST">
-                    <label class="seat">Enter Teacher ID</label>
+                    <label class="seat">Enter Course ID</label>
                     <br />
                     <input type="text" name="bid" required />
                     <br />
@@ -136,42 +136,11 @@ include('connect.php');
             </div>
 
 
-            <!-- Course Enroll -->
-
-            <?php
-                if(isset($_POST['bking'])){
-
-                    $user = $_POST['bid'];
-                    
-                    $sql = "SELECT * FROM teacher WHERE T_ID = $user";
-                    
-                    $result = mysqli_query($conn , $sql);
-                    $count = mysqli_num_rows($result);
-                    $row = $result->fetch_assoc();
-                    if($count==1)
-                    {
-
-                    $sql2 = "DELETE FROM teacher WHERE T_ID = $user";
-
-                    $result2 = mysqli_query($conn , $sql2);
-
-                    
-                    echo "<script>window.location.href='viewTeacher.php?deletion_confirm'</script>";
-                    }
-                    else
-                    {
-                    echo "You are not enrolled in this course";
-                    }
-                    
-                    
-                    }
-            ?>
-
             <table class="zigzag" id="tabl">
                 <thead>
                     <tr>
                         <th class="headr"><b>Course ID</b></th>
-                        <th class="headr"><b>Course Name</b></th>
+                        <!-- <th class="headr"><b>Course Name</b></th> -->
                         <th class="headr"><b>Category</b></th>
                         <th class="headr"><b>Description</b></th>
                     </tr>
@@ -179,7 +148,7 @@ include('connect.php');
                 <tbody>
                     <?php
                       
-                      $query = "SELECT T_ID, Name, Mail, status FROM teacher WHERE 1";
+                      $query = "SELECT C_ID, Dept_Name, description FROM course WHERE 1";
                       
                       $data = mysqli_query($conn,$query);
                       $row = mysqli_fetch_array($data, MYSQLI_ASSOC); 
@@ -190,10 +159,10 @@ include('connect.php');
                       while($row = $result->fetch_assoc()) { ?>
 
                     <tr>
-                        <td><?php echo  $row["T_ID"]; ?></td>
-                        <td><?php echo  $row["Name"]; ?></td>
-                        <td><?php echo  $row["Mail"]; ?></td>
-                        <td><?php echo  $row["status"]; ?></td>
+                        <td><?php echo  $row["C_ID"]; ?></td>
+                        <td><?php echo  $row["Dept_Name"]; ?></td>
+                        <td><?php echo  $row["description"]; ?></td>
+                        <!-- <td><?php echo  $row["status"]; ?></td> -->
 
                     </tr>
 
@@ -201,7 +170,7 @@ include('connect.php');
                           
                       }
                       } else {
-                      echo "No teacher available";
+                      echo "No course available";
                       }
       
                       exit();
