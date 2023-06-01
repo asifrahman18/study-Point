@@ -62,7 +62,7 @@ include('connect.php');
                                             class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="teacherInbox.php">Inbox</a>
+                                    <a class="nav-link" href="createCourse.php">Create Course</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">My Courses</a>
@@ -103,16 +103,7 @@ include('connect.php');
                         <?php
                         }
                         else if ($status == 'verified') {
-                            $sql = "SELECT status FROM teacher WHERE mail = '$mail'";
-                        
-                            $result = mysqli_query($conn , $sql);
-                            $count = mysqli_num_rows($result);
-
-                            if($count == 0)
-                            ?>
-                        <h5>You are currently do not have any courses. <a href="createCourse.php">Create Now</a></h5>
-                        <?php
-                        }
+                            }
                         
                         ?>
                     </div>

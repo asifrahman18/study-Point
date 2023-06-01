@@ -116,7 +116,7 @@ include('connect.php');
 
                 $tid = $row['T_ID'];
 
-                $sql2 = "INSERT INTO course (C_ID, Dept_Name, teacherID, description, name) VALUES (NULL, '$dept', '$tid', '$desc', '$name');";
+                $sql2 = "INSERT INTO $dept (C_ID, C_Name, T_ID, description) VALUES (NULL, '$name', '$tid', '$desc');";
                 $result2 = mysqli_query($conn , $sql2);
                 
                 echo "<script>window.location.href='teacherProfile.php'</script>";

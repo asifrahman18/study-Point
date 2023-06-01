@@ -1,12 +1,12 @@
 
 Add:
 
-    Student: All available course list display
+    Student: All available course list display ✅
     Student: Display course by category
     Student: Enrollment
     Student: My course list
     Student: Drop
-    Student: Edit profile
+    Student: Edit profile 🟡
     Student: View/Download course material
 
 -----------------------------------------------------------------------------------------------------
@@ -14,8 +14,8 @@ Add:
     Teacher: Course profile
     Teacher: Upload course material
     Teacher: My course list
-    Teacher: Inbox
-    Teacher: Edit Profile
+    Teacher: Inbox ⭕
+    Teacher: Edit Profile 🟡
     Teacher: Delete course
 
 ------------------------------------------------------------------------------------------------------
