@@ -358,7 +358,6 @@ include('connect.php');
                     if($count==1)
                     {
                         $_SESSION['adminID'] = $row['email'];
-                        $_SESSION['adminpass'] = $row['pass'];
 
                         echo "<script>window.location.href='adminProfile.php'</script>";
                     }

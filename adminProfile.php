@@ -41,6 +41,12 @@ include('connect.php');
 
 <body>
     <!-- header section code start from here -->
+
+
+    <?php
+        if($_SESSION['adminID'] != NULL){
+    ?>
+
     <header>
         <div class="overlay"></div>
         <div class="container">
@@ -83,6 +89,20 @@ include('connect.php');
             </div>
         </div>
     </header>
+
+    <?php
+        }
+        else
+        {
+            ?>
+
+    <script>
+    alert("Error. Login Required");
+    </script>
+
+    <?php
+        }
+    ?>
 </body>
 
 </html>

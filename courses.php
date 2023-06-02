@@ -149,10 +149,10 @@ include('connect.php');
                       { ?>
 
                     <tr>
-                        <td><?php echo  $row["C_ID"]; ?></td>
-                        <td><a href=""><?php echo  $row["C_Name"]; ?></a></td>
-                        <td><?php echo  $row["category"]; ?></td>
-                        <td><?php echo  $row["description"]; ?></td>
+                        <td><?php echo  $row["C_ID"]; $_SESSION['course'] = $row["C_ID"]; ?></td>
+                        <td><a href="enroll.php"><?php echo  $row["C_Name"]; ?></a></td>
+                        <td><?php echo $row["category"]; ?></td>
+                        <td><?php echo $row["description"]; ?></td>
 
                     </tr>
 
@@ -173,8 +173,9 @@ include('connect.php');
                       { ?>
 
                     <tr>
-                        <td><?php echo  $row1["C_ID"]; ?></td>
-                        <td><a href=""><?php echo  $row1["C_Name"]; ?></a></td>
+                        <td><?php echo  $row1["C_ID"]; $_SESSION['course'] = $row1["C_ID"]; $_SESSION['cat'] = $row1["category"]; ?>
+                        </td>
+                        <td><a href="enroll.php"><?php echo  $row1["C_Name"]; ?></a></td>
                         <td><?php echo  $row1["category"]; ?></td>
                         <td><?php echo  $row1["description"]; ?></td>
 
@@ -197,8 +198,8 @@ include('connect.php');
                       { ?>
 
                     <tr>
-                        <td><?php echo  $row2["C_ID"]; ?></td>
-                        <td><a href=""><?php echo  $row2["C_Name"]; ?></a></td>
+                        <td><?php echo  $row2["C_ID"]; $_SESSION['course'] = $row2["C_ID"]; ?></td>
+                        <td><a href="enroll.php"><?php echo  $row2["C_Name"]; ?></a></td>
                         <td><?php echo  $row2["category"]; ?></td>
                         <td><?php echo  $row2["description"]; ?></td>
 
@@ -221,7 +222,7 @@ include('connect.php');
                       { ?>
                     <tr>
                         <td><?php echo  $row3["C_ID"]; $_SESSION['course'] = $row3["C_ID"]; ?></td>
-                        <td><a href="enroll.php?"><?php echo  $row3["C_Name"]; ?></a></td>
+                        <td><a href="enroll.php"><?php echo  $row3["C_Name"]; ?></a></td>
                         <td><?php echo  $row3["category"]; ?></td>
                         <td><?php echo  $row3["description"]; ?></td>
 
