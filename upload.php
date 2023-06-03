@@ -59,10 +59,12 @@ include('connect.php');
         //   $mail = $_SESSION['mail'];
           $cid = $_SESSION['course'];
           $tid = $_SESSION['teacherID'];
+          $lec = $_SESSION['lecture'];
+          $nem = $_SESSION['nem'];
 
           move_uploaded_file($pdf_tem_loc,$pdf_store);
 
-          $sql="INSERT INTO course(teacherID, lecture, pdf, name, C_ID) values($tid, 5 ,'$pdf', 'NULL', $cid)";
+          $sql="INSERT INTO course(teacherID, lecture, pdf, name, C_ID) values($tid,$lec,'$pdf','$nem',$cid)";
           $query=mysqli_query($conn,$sql);
 
           echo "<script>window.location.href='teacherProfile.php'</script>";

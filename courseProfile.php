@@ -205,31 +205,6 @@ include('connect.php');
             ?>
 
 
-    <?php
-
-        if(isset($_POST['bking']))                    
-        {
-            $sql4 = "SELECT * FROM $cat WHERE C_ID = $cid";
-
-            $result4 = mysqli_query($conn , $sql4);
-            $count4 = mysqli_num_rows($result4);
-            $row4 = $result4->fetch_assoc();
-
-            $_SESSION['name'] = $row4['C_Name'];
-            $tid = $row4['T_ID'];
-            $_SESSION['desc'] = $row4['description'];
-
-            $sql5 = "SELECT Name FROM teacher WHERE T_ID = $tid";
-
-            $result5 = mysqli_query($conn , $sql5);
-            $count5 = mysqli_num_rows($result5);
-            $row5 = $result5->fetch_assoc();
-
-            $_SESSION['tname'] = $row5['Name'];
-        }
-
-    ?>
-
 
 
     <div class="container">
@@ -256,43 +231,50 @@ include('connect.php');
             </form>
         </div>
 
+
         <ul class="material-list">
+            <?php
+
+            if(isset($_POST['bking']))                    
+        {
+            $sql4 = "SELECT * FROM $cat WHERE C_ID = $cid";
+
+            $result4 = mysqli_query($conn , $sql4);
+            $count4 = mysqli_num_rows($result4);
+            $row4 = $result4->fetch_assoc();
+
+            $_SESSION['name'] = $row4['C_Name'];
+            $tid = $row4['T_ID'];
+            $_SESSION['desc'] = $row4['description'];
+
+            $sql5 = "SELECT Name FROM teacher WHERE T_ID = $tid";
+
+            $result5 = mysqli_query($conn , $sql5);
+            $count5 = mysqli_num_rows($result5);
+            $row5 = $result5->fetch_assoc();
+
+            $_SESSION['tname'] = $row5['Name'];
+
+
+            $sql8 = "SELECT* FROM course WHERE C_ID = $cid";
+            $result8 = mysqli_query($conn , $sql8);
+            $count8 = mysqli_num_rows($result8);
+            $row8 = $result8->fetch_assoc();
+
+            while($row8 = $result8->fetch_assoc()) { ?>
+
             <li class="material-item">
-                <div class="material-name">Lecture 1: Introduction</div>
+                <div class="material-name">Lecture <?php echo $row8['lecture'] ?>: <?php echo $row8['name'] ?> </div>
                 <div class="material-actions">
                     <button class="edit-button">Edit</button>
                     <button class="delete-button">Delete</button>
                 </div>
             </li>
-            <li class="material-item">
-                <div class="material-name">Lecture 2: Relational Models</div>
-                <div class="material-actions">
-                    <button class="edit-button">Edit</button>
-                    <button class="delete-button">Delete</button>
-                </div>
-            </li>
-            <li class="material-item">
-                <div class="material-name">Lecture 3: SQL</div>
-                <div class="material-actions">
-                    <button class="edit-button">Edit</button>
-                    <button class="delete-button">Delete</button>
-                </div>
-            </li>
-            </li>
-            <li class="material-item">
-                <div class="material-name">Lecture 4: Advanced SQL</div>
-                <div class="material-actions">
-                    <button class="edit-button">Edit</button>
-                    <button class="delete-button">Delete</button>
-                </div>
-            </li>
-            <li class="material-item">
-                <div class="material-name">Lecture 5: Relational Algebra</div>
-                <div class="material-actions">
-                    <button class="edit-button">Edit</button>
-                    <button class="delete-button">Delete</button>
-                </div>
-            </li>
+            <?php
+                  }
+        }
+
+    ?>
         </ul>
     </div>
 

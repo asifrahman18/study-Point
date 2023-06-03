@@ -87,7 +87,7 @@ include('connect.php');
             <input type="number" id="specialization" name="num" required />
 
             <label for="specialization">Lecture Name</label>
-            <input type="text" id="specialization" name="special" required />
+            <input type="text" id="specialization" name="nem" required />
 
             <input type="submit" id="btnn" name="submit11" value="Proceed to upload" />
         </form>
@@ -98,9 +98,9 @@ include('connect.php');
 
       if(isset($_POST['submit11'])){
 
-        echo "<script>window.location.href='login.php'</script>";
-
           $lec = $_POST['num'];
+          $_SESSION['nem'] = $_POST['nem'];
+          $_SESSION['lecture'] = $_POST['num'];
           $course = $_SESSION['course'];
 
           $sql = "SELECT lecture FROM course WHERE lecture = $lec AND C_ID = $course";
