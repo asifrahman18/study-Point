@@ -5,11 +5,21 @@ include('connect.php');
 
 
 
-$rec = $_SESSION['course'];
-$rec2 = $_SESSION['cat'];
+        
+        $sid = $_SESSION['userID'];
+        $course = $_SESSION['course'];
 
-echo $rec;
-echo $rec2;
+        if(isset($_POST['submit']))
+        {
+            $sql = "INSERT INTO enrolls (S_ID, C_ID, Status) VALUES ($sid, $course, 'enrolled');";
+
+            $result = mysqli_query($conn , $sql);
+
+            // echo $sid;
+            // echo $course;
+
+            echo "<script>window.location.href='enroll2.php?enrollSuccess'</script>";
+        }
 
 
 

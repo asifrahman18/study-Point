@@ -140,39 +140,114 @@ include('connect.php');
 
 <body>
 
+    <?php
+                if(isset($_POST['bking'])){
+
+                    $cid = $_POST['bid'];
+                    $_SESSION['c'] = $cid;
+                    $_SESSION['course'] = $cid;
+                    
+                    $sql2 = "SELECT * FROM engineering WHERE C_ID = $cid";
+                    
+                    $result2 = mysqli_query($conn , $sql2);
+                    $count2 = mysqli_num_rows($result2);
+                    $row2 = $result2->fetch_assoc();
+                    if($count2==1)
+                    {
+                        $cat = $row2['category'];
+                    }
+                    else if($count2==0)
+                    {
+                    
+                        $sql = "SELECT * FROM medical WHERE C_ID = $cid";
+                        
+                        $result = mysqli_query($conn , $sql);
+                        $count = mysqli_num_rows($result);
+                        $row = $result->fetch_assoc();
+                        if($count==1)
+                        {
+                            $cat = $row['category'];
+                        }
+                        else if($count==0)
+                        {
+                            $sql1 = "SELECT * FROM business WHERE C_ID = $cid";
+                        
+                            $result1 = mysqli_query($conn , $sql1);
+                            $count1 = mysqli_num_rows($result1);
+                            $row1 = $result1->fetch_assoc();
+                            if($count1==1)
+                            {
+                                $cat = $row1['category'];
+                            }
+                            else if($count1==0)
+                            {
+                                $sql3 = "SELECT * FROM general WHERE C_ID = $cid";
+                        
+                                $result3 = mysqli_query($conn , $sql3);
+                                $count3 = mysqli_num_rows($result3);
+                                $row3 = $result3->fetch_assoc();
+                                if($count3==1)
+                                {
+                                    $cat = $row3['category'];
+                                }
+                                else if($count3==0)
+                                {
+                                    echo "No Course found";
+                                }
+                        }
+                        else
+                        {
+                            
+                        }
+                    }
+                    }
+                }
+            ?>
+
 
     <?php
 
-        $cat = $_SESSION['cat'];
-        $cid = $_SESSION['course'];
+        if(isset($_POST['bking']))                    
+        {
+            $sql4 = "SELECT * FROM $cat WHERE C_ID = $cid";
 
+            $result4 = mysqli_query($conn , $sql4);
+            $count4 = mysqli_num_rows($result4);
+            $row4 = $result4->fetch_assoc();
 
-        $query = "SELECT* FROM $cat WHERE C_ID = $cid";
-                                
-        $data = mysqli_query($conn,$query);
-        $row = mysqli_fetch_array($data, MYSQLI_ASSOC); 
+            $_SESSION['name'] = $row4['C_Name'];
+            $tid = $row4['T_ID'];
+            $_SESSION['desc'] = $row4['description'];
 
-        $name = $row['C_Name'];
-        $desc = $row["description"];
+            $sql5 = "SELECT Name FROM teacher WHERE T_ID = $tid";
 
-        $total = mysqli_num_rows($data);
+            $result5 = mysqli_query($conn , $sql5);
+            $count5 = mysqli_num_rows($result5);
+            $row5 = $result5->fetch_assoc();
+
+            $_SESSION['tname'] = $row5['Name'];
+        }
 
     ?>
 
+
+
     <div class="container">
-        <h2><?php echo  $name; ?></h2>
+        <h2><?php echo  $_SESSION['name']; ?></h2>
 
         <div class="course-info">
-            <h3>Course ID: <?php echo  $cid; ?></h3>
+            <h3>Course ID: <?php echo  $_SESSION['c']; ?></h3>
+            <h3>Teacher: <?php echo  $_SESSION['tname']; ?></h3>
             <p>
-                <?php echo  $desc; ?>
+                <?php echo  $_SESSION['desc']; ?>
+                <br>
             </p>
         </div>
 
         <div class="course-actions">
-            <button class="action-button">Upload Material</button>
-            <button class="action-button">Edit Course</button>
-            <button class="delete-button">Delete Course</button>
+            <form action="enroll.php" name="submit" method="POST">
+                <input type="submit" name="submit" value="Enroll" class="action-button"></input>
+            </form>
         </div>
 
         <ul class="material-list">
@@ -212,9 +287,9 @@ include('connect.php');
                     <button class="delete-button">Delete</button>
                 </div>
             </li>
-            <!-- Add more material items as needed -->
         </ul>
     </div>
+
 </body>
 
 </html>

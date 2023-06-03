@@ -122,6 +122,17 @@ include('connect.php');
                     </div>
                 </div>
             </div>
+            <div class="boxx">
+                <p class="seat">Enroll in a course?</p>
+                <form name="f2" action="enroll2.php" method="POST">
+                    <label class="seat">Enter Course ID</label>
+                    <br />
+                    <input type="text" name="bid" required />
+                    <br />
+                    <input type="submit" name="bking" value="Enroll" class="btn" />
+                    <br />
+                </form>
+            </div>
 
 
             <table class="zigzag" id="tabl">
@@ -135,6 +146,8 @@ include('connect.php');
                 </thead>
                 <tbody>
                     <?php
+
+                        $_SESSION['cart']=array();
                       
                       $query = "SELECT* FROM business";
                       
@@ -149,8 +162,8 @@ include('connect.php');
                       { ?>
 
                     <tr>
-                        <td><?php echo  $row["C_ID"]; $_SESSION['course'] = $row["C_ID"]; ?></td>
-                        <td><a href="enroll.php"><?php echo  $row["C_Name"]; ?></a></td>
+                        <td><?php echo  $row["C_ID"] ?></td>
+                        <td><?php echo  $row["C_Name"]; ?></td>
                         <td><?php echo $row["category"]; ?></td>
                         <td><?php echo $row["description"]; ?></td>
 
@@ -173,9 +186,9 @@ include('connect.php');
                       { ?>
 
                     <tr>
-                        <td><?php echo  $row1["C_ID"]; $_SESSION['course'] = $row1["C_ID"]; $_SESSION['cat'] = $row1["category"]; ?>
+                        <td><?php echo  $row1["C_ID"]; ?>
                         </td>
-                        <td><a href="enroll.php"><?php echo  $row1["C_Name"]; ?></a></td>
+                        <td><?php echo  $row1["C_Name"]; ?></td>
                         <td><?php echo  $row1["category"]; ?></td>
                         <td><?php echo  $row1["description"]; ?></td>
 
@@ -198,8 +211,8 @@ include('connect.php');
                       { ?>
 
                     <tr>
-                        <td><?php echo  $row2["C_ID"]; $_SESSION['course'] = $row2["C_ID"]; ?></td>
-                        <td><a href="enroll.php"><?php echo  $row2["C_Name"]; ?></a></td>
+                        <td><?php echo  $row2["C_ID"];  ?></td>
+                        <td><?php echo  $row2["C_Name"]; ?></td>
                         <td><?php echo  $row2["category"]; ?></td>
                         <td><?php echo  $row2["description"]; ?></td>
 
@@ -221,8 +234,8 @@ include('connect.php');
                       while($row3 = $result3->fetch_assoc()) 
                       { ?>
                     <tr>
-                        <td><?php echo  $row3["C_ID"]; $_SESSION['course'] = $row3["C_ID"]; ?></td>
-                        <td><a href="enroll.php"><?php echo  $row3["C_Name"]; ?></a></td>
+                        <td><?php echo  $row3["C_ID"]; ?></td>
+                        <td><?php echo  $row3["C_Name"]; ?></td>
                         <td><?php echo  $row3["category"]; ?></td>
                         <td><?php echo  $row3["description"]; ?></td>
 
