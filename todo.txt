@@ -3,7 +3,7 @@ Add:
 
     Student: All available course list display ✅
     Student: Display course by category
-    Student: Enrollment
+    Student: Enrollment ✅
     Student: My course list
     Student: Drop
     Student: Edit profile 🟡
