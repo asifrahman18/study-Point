@@ -147,8 +147,6 @@ include('connect.php');
                 <tbody>
                     <?php
 
-                        $_SESSION['cart']=array();
-                      
                       $query = "SELECT* FROM business";
                       
                       $data = mysqli_query($conn,$query);

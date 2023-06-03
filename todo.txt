@@ -11,9 +11,9 @@ Add:
 
 -----------------------------------------------------------------------------------------------------
 
-    Teacher: Course profile
-    Teacher: Upload course material
-    Teacher: My course list
+    Teacher: Course profile ✅
+    Teacher: Upload course material ✅
+    Teacher: My course list ✅
     Teacher: Inbox ⭕
     Teacher: Edit Profile 🟡
     Teacher: Delete course
@@ -28,4 +28,5 @@ Fix:
     - Users registering with same email for different CATEGORIES
     - Check session before loading page
     - Upload new database SQL file
+    - Teacher/Student name exchanging with Course Name: Session variable check
 

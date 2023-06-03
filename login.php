@@ -320,7 +320,7 @@ include('connect.php');
                 </form>
 
                 <p class="link">Don't have an account<br>
-                    <a href="registration.php">Register </a> here</a>
+                    <a href="registration.php">Register </a> here
                 </p>
             </div>
         </div>

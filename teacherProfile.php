@@ -65,7 +65,7 @@ include('connect.php');
                                     <a class="nav-link" href="createCourse.php">Create Course</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">My Courses</a>
+                                    <a class="nav-link" href="teacherCourse.php">My Courses</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Edit Profile</a>
