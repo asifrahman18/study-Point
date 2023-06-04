@@ -185,7 +185,7 @@ include('connect.php');
 
     .form {
         width: 250px;
-        height: 380px;
+        height: 400px;
         background: rgba(0, 0, 0, 0.904);
         position: absolute;
         top: -20px;
@@ -294,6 +294,10 @@ include('connect.php');
     .icons ion-icon:hover {
         color: #ff7200;
     }
+
+    .link form {
+        cursor: pointer;
+    }
     </style>
 </head>
 
@@ -317,11 +321,14 @@ include('connect.php');
                     <input type="email" name="email" placeholder="Enter Email Here" required>
                     <input type="password" name="pass" placeholder="Enter Password Here" required>
                     <input type="submit" id="btnn" name="submit" value="Login" />
-                </form>
 
-                <p class="link">Don't have an account<br>
-                    <a href="registration.php">Register </a> here
-                </p>
+                    <p class="link">Don't have an account<br>
+                        <a href="registration.php">Register </a> here
+                        <br>
+                        <br>
+                        <a href="reset.php">Forget Password? </a>
+                    </p>
+                </form>
             </div>
         </div>
     </div>

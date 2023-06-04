@@ -17,33 +17,6 @@ include('connect.php');
         padding: 0;
     }
 
-    .zigzag {
-        margin: 25px 0;
-        font-size: 0.9em;
-        font-family: sans-serif;
-        min-width: 400px;
-
-        margin-left: auto;
-        margin-right: auto;
-        border: 1px solid black;
-    }
-
-    .zigzag tbody tr {
-        border-bottom: 1px solid #dddddd;
-    }
-
-    .zigzag th,
-    .zigzag td {
-        padding: 12px 15px;
-        border: 1px solid rgb(255, 255, 255);
-    }
-
-    .zigzag td {
-        background-color: rgb(9, 54, 232);
-        color: #ffffff;
-    }
-
-
     .container {
         max-width: 800px;
         margin: 0 auto;
@@ -144,6 +117,32 @@ include('connect.php');
         cursor: pointer;
     }
 
+    .zigzag {
+        margin: 25px 0;
+        font-size: 0.9em;
+        font-family: sans-serif;
+        min-width: 400px;
+
+        margin-left: auto;
+        margin-right: auto;
+        border: 1px solid black;
+    }
+
+    .zigzag tbody tr {
+        border-bottom: 1px solid #dddddd;
+    }
+
+    .zigzag th,
+    .zigzag td {
+        padding: 12px 15px;
+        border: 1px solid rgb(255, 255, 255);
+    }
+
+    .zigzag td {
+        background-color: rgb(9, 54, 232);
+        color: #ffffff;
+    }
+
     .material-item .material-actions .delete-button {
         margin-left: 10px;
         padding: 5px 10px;
@@ -171,8 +170,8 @@ include('connect.php');
                 if(isset($_POST['bking'])){
 
                     $cid = $_POST['bid'];
-                    $_SESSION['course'] = $cid;
-                    
+                    $_SESSION['courseID'] = $cid;
+
                     $sql2 = "SELECT * FROM engineering WHERE C_ID = $cid";
                     
                     $result2 = mysqli_query($conn , $sql2);
@@ -181,6 +180,8 @@ include('connect.php');
                     if($count2==1)
                     {
                         $cat = $row2['category'];
+                        $courseName = $row2['C_Name'];
+                        $desc = $row2['description'];
                     }
                     else if($count2==0)
                     {
@@ -193,6 +194,8 @@ include('connect.php');
                         if($count==1)
                         {
                             $cat = $row['category'];
+                            $courseName = $row['C_Name'];
+                            $desc = $row['description'];
                         }
                         else if($count==0)
                         {
@@ -204,6 +207,8 @@ include('connect.php');
                             if($count1==1)
                             {
                                 $cat = $row1['category'];
+                                $courseName = $row1['C_Name'];
+                                $desc = $row1['description'];
                             }
                             else if($count1==0)
                             {
@@ -215,6 +220,8 @@ include('connect.php');
                                 if($count3==1)
                                 {
                                     $cat = $row3['category'];
+                                    $courseName = $row3['C_Name'];
+                                    $desc = $row3['description'];
                                 }
                                 else if($count3==0)
                                 {
@@ -233,50 +240,47 @@ include('connect.php');
 
     <?php
 
-        if(isset($_POST['bking']))                    
-        {
-            $cid = $_POST['bid'];
-            $sql4 = "SELECT * FROM $cat WHERE C_ID = $cid";
+                $_SESSION['catD'] = $cat;
 
-            $result4 = mysqli_query($conn , $sql4);
-            $count4 = mysqli_num_rows($result4);
-            $row4 = $result4->fetch_assoc();
+                    $sql0 = "SELECT teacher.Name FROM course, teacher WHERE teacher.T_ID = course.teacherID AND course.C_ID = $cid";
+                                            
+                    $result0 = mysqli_query($conn , $sql0);
+                    $count0 = mysqli_num_rows($result0);
+                    $row0 = $result0->fetch_assoc();
+                    if($count0!=0)
+                    {
+                        $T_name = $row0['Name'];
+                    }
+                    else if($count0==0)
+                    {
+                        echo "No Course found";
+                    }
 
-            $_SESSION['name'] = $row4['C_Name'];
-            $tid = $row4['T_ID'];
-            $_SESSION['desc'] = $row4['description'];
+                ?>
 
-            $sql5 = "SELECT Name FROM teacher WHERE T_ID = $tid";
-
-            $result5 = mysqli_query($conn , $sql5);
-            $count5 = mysqli_num_rows($result5);
-            $row5 = $result5->fetch_assoc();
-
-            $_SESSION['tname'] = $row5['Name'];
-        }
-
-    ?>
 
 
 
     <div class="container">
-        <h2><?php echo  $_SESSION['name']; ?></h2>
+        <h2><?php echo  $courseName; ?></h2>
 
         <div class="course-info">
-            <h3>Course ID: <?php echo  $_SESSION['course']; ?></h3>
-            <h3>Teacher: <?php echo  $_SESSION['tname']; ?></h3>
+            <h3>Course ID: <?php echo $_SESSION['courseID']; ?></h3>
+            <h3>Teacher: <?php echo $T_name ?></h3>
             <p>
-                <?php echo  $_SESSION['desc']; ?>
+                <?php echo  $desc; ?>
                 <br>
             </p>
         </div>
 
         <div class="course-actions">
-            <form action="enroll.php" name="submit" method="POST">
-                <input type="submit" name="submit" value="Enroll" class="action-button"></input>
+            <form action="display.php" name="submit" method="POST">
+                <input type="submit" name="submit" value="View All Material" class="action-button"></input>
+            </form>
+            <form action="drop.php" name="submit" method="POST">
+                <input type="submit" name="submit11" value="Drop Course" class="delete-button"></input>
             </form>
         </div>
-
 
         <table class="zigzag" id="tabl">
             <thead>
@@ -286,18 +290,19 @@ include('connect.php');
                 </tr>
             </thead>
             <tbody>
-
                 <?php
 
             if(isset($_POST['bking']))                    
         {
+            
 
-            $cid = $_POST['bid'];
             $query = "SELECT* FROM course WHERE C_ID = $cid";
             $data = mysqli_query($conn , $query);
             $row8 = mysqli_fetch_array($data, MYSQLI_ASSOC);
             $total = mysqli_num_rows($data);
 
+            // $count8 = mysqli_num_rows($result8);
+            // $row8 = $result8->fetch_assoc();
 
             $result = $conn->query($query); if ($result->num_rows > 0) {
                 while($row8 = $result->fetch_assoc())
@@ -313,7 +318,6 @@ include('connect.php');
     }
 
     ?>
-
             </tbody>
         </table>
     </div>

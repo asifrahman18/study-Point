@@ -43,6 +43,20 @@ include('connect.php');
 <body>
     <!-- header section code start from here -->
     <header>
+
+        <?php
+                    
+        $mail = $_SESSION['mail'];
+        $sql = "SELECT * FROM teacher WHERE mail = '$mail'";
+                
+        $result = mysqli_query($conn , $sql);
+        $count = mysqli_num_rows($result);
+        $row = $result->fetch_assoc();
+
+        $status = $row['status'];
+        $id = $row['T_ID'];
+    ?>
+
         <div class="overlay"></div>
         <div class="container">
             <div class="row">
@@ -62,10 +76,22 @@ include('connect.php');
                                             class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item">
+                                    <?php 
+                                    if ($status == 'verified'){
+                                        ?>
                                     <a class="nav-link" href="createCourse.php">Create Course</a>
+                                    <?php 
+                                    }
+                                    ?>
                                 </li>
                                 <li class="nav-item">
+                                    <?php 
+                                    if ($status == 'verified'){
+                                        ?>
                                     <a class="nav-link" href="teacherCourse.php">My Courses</a>
+                                    <?php 
+                                    }
+                                    ?>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Edit Profile</a>
@@ -77,19 +103,6 @@ include('connect.php');
                         </div>
                     </nav>
 
-                    <?php
-                    
-                            $mail = $_SESSION['mail'];
-                            $sql = "SELECT * FROM teacher WHERE mail = '$mail'";
-                        
-                            $result = mysqli_query($conn , $sql);
-                            $count = mysqli_num_rows($result);
-                            $row = $result->fetch_assoc();
-
-                            $status = $row['status'];
-                            $id = $row['T_ID'];
-                    
-                    ?>
                     <div class="banner-text">
                         <h1>WELCOME</h1>
                         <br>

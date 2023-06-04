@@ -57,7 +57,7 @@ include('connect.php');
           $pdf_store="pdf/".$pdf;
 
         //   $mail = $_SESSION['mail'];
-          $cid = $_SESSION['course'];
+          $cid = $_SESSION['courseID'];
           $tid = $_SESSION['teacherID'];
           $lec = $_SESSION['lecture'];
           $nem = $_SESSION['nem'];

@@ -33,7 +33,8 @@ include('connect.php');
 
     .container {
         position: relative;
-        max-width: 900px;
+        max-width: 700px;
+        max-height: 800px;
         width: 100%;
         border-radius: 6px;
         padding: 30px;
@@ -245,26 +246,30 @@ include('connect.php');
 
 <body>
     <div class="container">
-        <header>Registration</header>
+        <header>Reset Password</header>
 
-        <form action="registration.php" method="post">
+        <form action="reset.php" method="post">
             <div class="form first">
                 <div class="details personal">
-                    <span class="title">Personal Details</span>
 
                     <div class="fields">
                         <div class="input-field">
-                            <label>Name</label>
-                            <input type="text" name="user" placeholder="Enter your name" required>
-                        </div>
-
-                        <div class="input-field">
                             <label>Email</label>
-                            <input type="email" name="mail" placeholder="Enter your email" required>
+                            <input type="email" name="mailID" placeholder="Enter Email ID" required>
                         </div>
 
                         <div class="input-field">
-                            <label>Register As</label>
+                            <label>New Password</label>
+                            <input type="password" name="passW" placeholder="Enter New Password" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Confirm Password</label>
+                            <input type="password" name="confPass" placeholder="Confirm Password" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Account Type</label>
                             <select name="role" required>
                                 <option disabled selected>Select</option>
                                 <option>student</option>
@@ -272,34 +277,7 @@ include('connect.php');
                             </select>
                         </div>
 
-                        <div class="input-field">
-                            <label>Password</label>
-                            <input type="password" name="pass" placeholder="Enter password" required>
-                        </div>
-
-                        <div class="input-field">
-                            <label>Conform Password</label>
-                            <input type="password" name="conf" placeholder="Conform password" required>
-                        </div>
-
-
-                        <div class="input-field">
-                            <label>Mobile Number</label>
-                            <!-- <input type="number" name="phone" placeholder="Enter mobile number" required> -->
-                            <input type="tel" id="phone" name="phone" placeholder="01XXXXXXXXX"
-                                pattern="[0]{1}[1]{1}[0-9]{9}">
-                        </div>
-
-                        <div class="input-field">
-                            <label>Gender</label>
-                            <select name="gender" required>
-                                <option disabled selected>Select gender</option>
-                                <option>Male</option>
-                                <option>Female</option>
-                            </select>
-                        </div>
-
-                        <input type="submit" class="nextBtn" name="submit" value="Register" />
+                        <input type="submit" class="nextBtn" name="submit" value="Reset" />
 
                     </div>
                 </div>
@@ -311,92 +289,65 @@ include('connect.php');
         if(isset($_POST['submit']))
         {
 
-
-            if($_POST['pass'] == $_POST['conf']){
-
-            
-            $username = $_POST['user'];  
-            $password = $_POST['pass'];
-            $email = $_POST['mail'];
-            $gen = $_POST['gender'];
-            $phone = $_POST['phone'];
             $role = $_POST['role'];
-
+            $email = $_POST['mailID'];  
 
             $sql = "select *from $role where Mail = '$email'";
             $result = mysqli_query($conn, $sql);  
             $row = mysqli_fetch_array($result, MYSQLI_ASSOC);  
             $count = mysqli_num_rows($result);  
             
-            if($count == 1){  
-                echo "<h1><center> User Already Exist </center></h1>";  
-            }  
-            else{ 
-
-                if($role == 'student'){
-                    
-                    $sql = "INSERT INTO student (S_ID, Name, Mail, Gender, Pass) VALUES (NULL, '$username', '$email', '$gen', '$password');";
-                    $result = mysqli_query($conn, $sql);
-
-                    $sql = "select *from student where Mail = '$email' and Pass = '$password'";
-
-                    $result = mysqli_query($conn , $sql);
-                    $count = mysqli_num_rows($result);
-                    $row = $result->fetch_assoc();
-                    if($count==1)
-                    {
-                        $_SESSION['userID'] = $row['S_ID'];
-                        $_SESSION['password'] = $row['Pass'];
-                        $_SESSION['mail'] = $row['Mail'];
-                        $_SESSION['name'] = $row['Name'];
-        
-                        echo "<script>window.location.href='studentProfile2.php'</script>";
-                    }
-                    else
-                    {
-                        echo "<h1><center></center> Login failed. Invalid username or password.</h1>"; 
-                    }
-                }
-                    
-                else if($role == 'teacher'){
-                    
-                    $sql = "INSERT INTO teacher (T_ID, Name, Mail, Ph_No, Specialization, Pass, status) VALUES (NULL, '$username', '$email', '$phone', NULL, '$password', 'unverified');";
-                    $result = mysqli_query($conn, $sql);
-
-                    $sql = "select *from teacher where Mail = '$email'";
-
-                    $result = mysqli_query($conn , $sql);
-                    $count = mysqli_num_rows($result);
-                    $row = $result->fetch_assoc();
-                    if($count==1)
-                    {
-                        $_SESSION['userID'] = $row['T_ID'];
-                        $_SESSION['password'] = $row['Pass'];
-                        $_SESSION['mail'] = $row['Mail'];
-                        $_SESSION['name'] = $row['Name'];
-                        $_SESSION['status'] = $row['status'];
-        
-                        echo "<script>window.location.href='verification.php'</script>";
-                    }
-                    else
-                    {
-                        echo "<h1><center></center> Login failed. Invalid username or password.</h1>"; 
-                    }
-                    $conn->close();
-                }
-
-                }
-            }
-        
-
-        else{
-            ?>
+            if($count == 0){  
+                ?>
     <script>
-    alert("Passwords do not match. Please try again")
+    alert("User Does Not Exist! Try Again");
+    </script>
+    <?php  
+            }
+
+            else{
+
+            if($_POST['passW'] == $_POST['confPass']){
+
+            if($role == 'student'){
+                        
+                        $user = $_POST['mailID'];  
+                        $password = $_POST['passW'];
+    
+    
+                        $sql1 = "UPDATE student SET Pass = '$password' WHERE Mail = '$user'";
+                        $result1 = mysqli_query($conn, $sql1);
+
+                        echo "<script>window.location.href='login.php?resetSuccess'</script>";
+                    }
+                        
+                    else if($role == 'teacher'){
+                        
+                        $user = $_POST['mailID'];  
+                        $password = $_POST['passW'];
+    
+    
+                        $sql1 = "UPDATE teacher SET Pass = '$password' WHERE Mail = '$user'";
+                        $result1 = mysqli_query($conn, $sql1);
+                        
+
+                        echo "<script>window.location.href='login.php?resetSuccess'</script>";
+                    }
+    
+                    }
+        
+                    else{
+
+                        ?>
+    <script>
+    alert("Passwords do not match. Please try again");
     </script>
     <?php
+                    }
+                }
         }
-    }
+
+    
 
     ?>
 </body>

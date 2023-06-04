@@ -4,10 +4,10 @@ Main Features:
     ✅ Student: All available course list display
     🟡 Student: Display course by category
     ✅ Student: Enrollment
-    🔴 Student: My course list
-    🔴 Student: Drop
+    ✅ Student: My course list
+    ✅ Student: Drop
     🟡 Student: Edit profile
-    🔴 Student: View/Download course material
+    ✅ Student: View/Download course material
 
 -----------------------------------------------------------------------------------------------------
 
@@ -16,11 +16,15 @@ Main Features:
     ✅ Teacher: My course list 
     ⭕ Teacher: Inbox 
     🟡 Teacher: Edit Profile
-    🔴 Teacher: Delete course
+    ✅ Teacher: Delete course
 
 ------------------------------------------------------------------------------------------------------
 
     🔴 Admin: Delete Course
+
+------------------------------------------------------------------------------------------------------
+
+    ✅ User: Forget Password
 
 
 Fix:
@@ -28,6 +32,9 @@ Fix:
     - Users registering with same email for different CATEGORIES
     - Check session before loading page
     - Upload new database SQL file
-    - Teacher/Student name exchanging with Course Name: Session variable check
-    - Display lecture list on course profile
+    🟢 Teacher/Student name exchanging with Course Name: Session variable check
+    ✅ Display lecture list on course profile
+
+    ✅ - Students enrolling in the same course more than once
+    ✅ - unverified teachers can create course
 

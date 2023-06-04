@@ -119,7 +119,7 @@ include('connect.php');
 
             <div class="boxx">
                 <p class="seat">View a Course?</p>
-                <form name="f2" action="viewTeacher.php" method="POST">
+                <form name="f2" action="studentCourse2.php" method="POST">
                     <label class="seat">Enter Course ID</label>
                     <br />
                     <input type="text" name="bid" required />
@@ -129,65 +129,30 @@ include('connect.php');
                 </form>
             </div>
 
-
-            <!-- student delete -->
-
-            <?php
-                if(isset($_POST['bking'])){
-
-                    $user = $_POST['bid'];
-                    
-                    $sql = "SELECT * FROM teacher WHERE T_ID = $user";
-                    
-                    $result = mysqli_query($conn , $sql);
-                    $count = mysqli_num_rows($result);
-                    $row = $result->fetch_assoc();
-                    if($count==1)
-                    {
-
-                    $sql2 = "DELETE FROM teacher WHERE T_ID = $user";
-
-                    $result2 = mysqli_query($conn , $sql2);
-
-                    
-                    echo "<script>window.location.href='viewTeacher.php?deletion_confirm'</script>";
-                    }
-                    else
-                    {
-                    echo "You are not enrolled in this course";
-                    }
-                    
-                    
-                    }
-            ?>
-
             <table class="zigzag" id="tabl">
                 <thead>
                     <tr>
                         <th class="headr"><b>Course ID</b></th>
                         <th class="headr"><b>Course Name</b></th>
-                        <th class="headr"><b>Email</b></th>
-                        <th class="headr"><b>Status</b></th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
                       
-                      $query = "SELECT T_ID, Name, Mail, status FROM teacher WHERE 1";
+                      $stuID = $_SESSION['userID'];
+                      $query = "SELECT * FROM enrolls, course WHERE enrolls.C_ID = course.C_ID AND enrolls.S_ID = $stuID AND Status = 'enrolled'";
                       
                       $data = mysqli_query($conn,$query);
                       $row = mysqli_fetch_array($data, MYSQLI_ASSOC); 
                       $total = mysqli_num_rows($data);
-      
-      
+
+
                       $result = $conn->query($query); if ($result->num_rows > 0) {
                       while($row = $result->fetch_assoc()) { ?>
 
                     <tr>
-                        <td><?php echo  $row["T_ID"]; ?></td>
-                        <td><?php echo  $row["Name"]; ?></td>
-                        <td><?php echo  $row["Mail"]; ?></td>
-                        <td><?php echo  $row["status"]; ?></td>
+                        <td><?php echo  $row["C_ID"]; ?></td>
+                        <td><?php echo  $row["name"]; ?></td>
 
                     </tr>
 
@@ -195,7 +160,7 @@ include('connect.php');
                           
                       }
                       } else {
-                      echo "No teacher available";
+                      echo "No course available";
                       }
       
                       exit();

@@ -116,10 +116,18 @@ include('connect.php');
 
                 $tid = $row['T_ID'];
 
-                $sql2 = "INSERT INTO $dept (C_ID, C_Name, T_ID, description) VALUES (NULL, '$name', '$tid', '$desc');";
+                $sql2 = "INSERT INTO $dept (C_ID, C_Name, T_ID, description, category) VALUES (NULL, '$name', '$tid', '$desc', '$dept');";
+                $result2 = mysqli_query($conn , $sql2);
+
+                $count2 = mysqli_num_rows($result2);
+                $row2 = $result2->fetch_assoc();
+
+                $cid = $row2['C_ID'];
+
+                $sql2 = "INSERT INTO course (teacherID, lecture, pdf, name, C_ID) VALUES ($tid, 0, '$tid', NULL, NULL, $cid)";
                 $result2 = mysqli_query($conn , $sql2);
                 
-                echo "<script>window.location.href='teacherProfile.php'</script>";
+                echo "<script>window.location.href='teacherProfile.php?createCourseSuccess'</script>";
     }
 
     ?>

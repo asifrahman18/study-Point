@@ -56,9 +56,6 @@ $_SESSION['adminpass'] = NULL;
                                     <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Teachers</a>
-                                </li>
-                                <li class="nav-item">
                                     <a class="nav-link" href="registration.php">Sign Up</a>
                                 </li>
                                 <li class="nav-item">

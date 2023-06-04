@@ -220,8 +220,8 @@ include('connect.php');
                                 if($count3==1)
                                 {
                                     $cat = $row3['category'];
-                                    $courseName = $row1['C_Name'];
-                                    $desc = $row1['description'];
+                                    $courseName = $row3['C_Name'];
+                                    $desc = $row3['description'];
                                 }
                                 else if($count3==0)
                                 {
@@ -234,7 +234,10 @@ include('connect.php');
                         }
                     }
                     }
+
+                    $_SESSION['catD'] = $cat;
                 }
+
             ?>
 
 
@@ -244,7 +247,7 @@ include('connect.php');
         <h2><?php echo  $courseName; ?></h2>
 
         <div class="course-info">
-            <h3>Course ID: <?php echo  $_SESSION['course']; ?></h3>
+            <h3>Course ID: <?php echo  $_SESSION['courseID']; ?></h3>
             <h3>Teacher: <?php echo  $_SESSION['tname']; ?></h3>
             <p>
                 <?php echo  $desc; ?>
@@ -259,7 +262,7 @@ include('connect.php');
             <form action="enroll.php" name="submit2" method="POST">
                 <input type="submit" name="submit2" value="Edit Course" class="action-button"></input>
             </form>
-            <form action="enroll.php" name="submit3" method="POST">
+            <form action="drop.php" name="submit3" method="POST">
                 <input type="submit" name="submit3" value="Delete Course" class="delete-button"></input>
             </form>
         </div>
@@ -276,15 +279,6 @@ include('connect.php');
 
             if(isset($_POST['bking']))                    
         {
-            // $sql4 = "SELECT * FROM $cat WHERE C_ID = $cid";
-
-            // $result4 = mysqli_query($conn , $sql4);
-            // $count4 = mysqli_num_rows($result4);
-            // $row4 = $result4->fetch_assoc();
-
-            // $_SESSION['cName'] = $row4['C_Name'];
-            // $tid = $row4['T_ID'];
-            // $_SESSION['desc'] = $row4['description'];
 
             $tid = $_SESSION['teacherID'];
 

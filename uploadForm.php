@@ -101,7 +101,7 @@ include('connect.php');
           $lec = $_POST['num'];
           $_SESSION['nem'] = $_POST['nem'];
           $_SESSION['lecture'] = $_POST['num'];
-          $course = $_SESSION['course'];
+          $course = $_SESSION['courseID'];
 
           $sql = "SELECT lecture FROM course WHERE lecture = $lec AND C_ID = $course";
                 
