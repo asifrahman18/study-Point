@@ -1,26 +1,26 @@
 
-Add:
+Main Features:
 
-    Student: All available course list display ✅
-    Student: Display course by category
-    Student: Enrollment ✅
-    Student: My course list
-    Student: Drop
-    Student: Edit profile 🟡
-    Student: View/Download course material
+    ✅ Student: All available course list display
+    🟡 Student: Display course by category
+    ✅ Student: Enrollment
+    🔴 Student: My course list
+    🔴 Student: Drop
+    🟡 Student: Edit profile
+    🔴 Student: View/Download course material
 
 -----------------------------------------------------------------------------------------------------
 
-    Teacher: Course profile ✅
-    Teacher: Upload course material ✅
-    Teacher: My course list ✅
-    Teacher: Inbox ⭕
-    Teacher: Edit Profile 🟡
-    Teacher: Delete course
+    ✅ Teacher: Course profile
+    ✅ Teacher: Upload course material
+    ✅ Teacher: My course list 
+    ⭕ Teacher: Inbox 
+    🟡 Teacher: Edit Profile
+    🔴 Teacher: Delete course
 
 ------------------------------------------------------------------------------------------------------
 
-    Admin: Delete Course
+    🔴 Admin: Delete Course
 
 
 Fix:
@@ -29,4 +29,5 @@ Fix:
     - Check session before loading page
     - Upload new database SQL file
     - Teacher/Student name exchanging with Course Name: Session variable check
+    - Display lecture list on course profile
 
