@@ -76,6 +76,9 @@ include('connect.php');
                                     <a class="nav-link" href="viewStudent.php">Students</a>
                                 </li>
                                 <li class="nav-item">
+                                    <a class="nav-link" href="adminCourse.php">Courses</a>
+                                </li>
+                                <li class="nav-item">
                                     <a class="nav-link" id="s-out" href="index.php">Sign Out</a>
                                 </li>
                             </ul>
@@ -101,6 +104,7 @@ include('connect.php');
     </script>
 
     <?php
+    echo "<script>window.location.href='index.php?'</script>";
         }
     ?>
 </body>

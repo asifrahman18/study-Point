@@ -47,6 +47,7 @@ include('connect.php');
         <?php
                     
         $mail = $_SESSION['mail'];
+        $id = $_SESSION['teacherID'];
         $sql = "SELECT * FROM teacher WHERE mail = '$mail'";
                 
         $result = mysqli_query($conn , $sql);
@@ -54,7 +55,6 @@ include('connect.php');
         $row = $result->fetch_assoc();
 
         $status = $row['status'];
-        $id = $row['T_ID'];
     ?>
 
         <div class="overlay"></div>
@@ -94,7 +94,7 @@ include('connect.php');
                                     ?>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Edit Profile</a>
+                                    <a class="nav-link" href="editProfile.php">Edit Profile</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" id="s-out" href="index.php">Sign Out</a>
@@ -106,7 +106,7 @@ include('connect.php');
                     <div class="banner-text">
                         <h1>WELCOME</h1>
                         <br>
-                        <h2><?php echo $_SESSION['name'] ?></h2>
+                        <h2><?php echo $_SESSION['tname'] ?></h2>
                         <h6><?php echo $_SESSION['mail'] ?></h6>
                         <h5>Teacher ID: <?php echo $id ?></h5>
                         <?php

@@ -81,7 +81,7 @@ include('connect.php');
         <form action="uploadForm.php" method="post">
             <label for="years">Course Name: <?php echo $_SESSION['name']; ?></label>
 
-            <label for="qualifications">Course ID: <?php echo $_SESSION['course']; ?></label>
+            <label for="qualifications">Course ID: <?php echo $_SESSION['courseID']; ?></label>
 
             <label for="specialization">Lecture Number: </label>
             <input type="number" id="specialization" name="num" required />
@@ -104,6 +104,7 @@ include('connect.php');
           $course = $_SESSION['courseID'];
 
           $sql = "SELECT lecture FROM course WHERE lecture = $lec AND C_ID = $course";
+
                 
                 $result = mysqli_query($conn , $sql);
                 $count = mysqli_num_rows($result);

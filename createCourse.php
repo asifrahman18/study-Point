@@ -103,30 +103,17 @@ include('connect.php');
 
       if(isset($_POST['submit'])){
 
-          $mail = $_SESSION['mail'];
-          $name = $_POST['cName'];
-          $dept = $_POST['category'];
-          $desc = $_POST['desc'];
-
-          $sql = "select *from teacher where mail = '$mail'";
-                
-                $result = mysqli_query($conn , $sql);
-                $count = mysqli_num_rows($result);
-                $row = $result->fetch_assoc();
-
-                $tid = $row['T_ID'];
+        $mail = $_SESSION['mail'];
+        $name = $_POST['cName'];
+        $dept = $_POST['category'];
+        $_SESSION['catgory'] = $_POST['category'];
+        $desc = $_POST['desc'];
+        $tid = $_SESSION['teacherID'];
 
                 $sql2 = "INSERT INTO $dept (C_ID, C_Name, T_ID, description, category) VALUES (NULL, '$name', '$tid', '$desc', '$dept');";
+
                 $result2 = mysqli_query($conn , $sql2);
 
-                $count2 = mysqli_num_rows($result2);
-                $row2 = $result2->fetch_assoc();
-
-                $cid = $row2['C_ID'];
-
-                $sql2 = "INSERT INTO course (teacherID, lecture, pdf, name, C_ID) VALUES ($tid, 0, '$tid', NULL, NULL, $cid)";
-                $result2 = mysqli_query($conn , $sql2);
-                
                 echo "<script>window.location.href='teacherProfile.php?createCourseSuccess'</script>";
     }
 

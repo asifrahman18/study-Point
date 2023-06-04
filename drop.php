@@ -4,12 +4,11 @@ session_start();
 include('connect.php');
 
 
-$course = $_SESSION['courseID'];
-$cat = $_SESSION['catD'];
-$stID = $_SESSION['userID'];
-
         if(isset($_POST['submit11']))                    
         {
+            $course = $_SESSION['courseID'];
+            $cat = $_SESSION['catD'];
+            $stID = $_SESSION['userID'];
 
 
             // echo $course;
@@ -22,11 +21,13 @@ $stID = $_SESSION['userID'];
 
             echo "<script>window.location.href='studentProfile2.php?dropSuccess'</script>";
     
-    }
+        }
 
     if(isset($_POST['submit3']))                    
         {
-
+            $course = $_SESSION['courseID'];
+            $cat = $_SESSION['catD'];
+            $stID = $_SESSION['userID'];
 
             // echo $course;
             // echo $cat;
@@ -39,6 +40,17 @@ $stID = $_SESSION['userID'];
             $data1 = mysqli_query($conn , $query1);
 
             echo "<script>window.location.href='teacherProfile.php?deleteSuccess'</script>";
+    
+    }
+
+    if(isset($_POST['bking2']))                    
+        {
+            $cid = $_POST['bid'];
+
+            $query0 = "DELETE FROM course WHERE C_ID = $cid";
+            $data0 = mysqli_query($conn , $query0);
+
+            echo "<script>window.location.href='adminProfile.php?deleteSuccess'</script>";
     
     }
 ?>

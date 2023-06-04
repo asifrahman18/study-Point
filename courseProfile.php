@@ -165,7 +165,9 @@ include('connect.php');
 </head>
 
 <body>
-
+    <?php
+        if($_SESSION['teacherID'] != NULL){
+    ?>
     <?php
                 if(isset($_POST['bking'])){
 
@@ -282,13 +284,6 @@ include('connect.php');
 
             $tid = $_SESSION['teacherID'];
 
-            $sql5 = "SELECT Name FROM teacher WHERE T_ID = $tid";
-
-            $result5 = mysqli_query($conn , $sql5);
-            $count5 = mysqli_num_rows($result5);
-            $row5 = $result5->fetch_assoc();
-
-            $_SESSION['tname'] = $row5['Name'];
 
 
             $query = "SELECT* FROM course WHERE C_ID = $cid";
@@ -317,7 +312,20 @@ include('connect.php');
             </tbody>
         </table>
     </div>
+    <?php
+        }
+        else
+        {
+            ?>
 
+    <script>
+    alert("Error. Login Required");
+    </script>
+
+    <?php
+    echo "<script>window.location.href='index.php?'</script>";
+        }
+    ?>
 </body>
 
 </html>

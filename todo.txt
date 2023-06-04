@@ -6,7 +6,7 @@ Main Features:
     ✅ Student: Enrollment
     ✅ Student: My course list
     ✅ Student: Drop
-    🟡 Student: Edit profile
+    ✅ Student: Edit profile
     ✅ Student: View/Download course material
 
 -----------------------------------------------------------------------------------------------------
@@ -15,12 +15,12 @@ Main Features:
     ✅ Teacher: Upload course material
     ✅ Teacher: My course list 
     ⭕ Teacher: Inbox 
-    🟡 Teacher: Edit Profile
+    ✅ Teacher: Edit Profile
     ✅ Teacher: Delete course
 
 ------------------------------------------------------------------------------------------------------
 
-    🔴 Admin: Delete Course
+    ✅ Admin: Delete Course
 
 ------------------------------------------------------------------------------------------------------
 

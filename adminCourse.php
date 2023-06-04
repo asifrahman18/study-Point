@@ -88,6 +88,9 @@ include('connect.php');
 </head>
 
 <body>
+    <?php
+        if($_SESSION['adminID'] != NULL){
+    ?>
     <header>
         <div class="overlay">
             <div class="container">
@@ -104,14 +107,14 @@ include('connect.php');
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul class="navbar-nav ml-auto">
                                     <li class="nav-item active">
-                                        <a class="nav-link" href="studentProfile2.php">Home <span
+                                        <a class="nav-link" href="adminProfile.php">Home <span
                                                 class="sr-only">(current)</span></a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">Teachers</a>
+                                        <a class="nav-link" href="viewTeacher.php">Teachers</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">Students</a>
+                                        <a class="nav-link" href="viewStudent.php">Students</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" id="s-out" href="index.php">Sign Out</a>
@@ -123,13 +126,13 @@ include('connect.php');
                 </div>
             </div>
             <div class="boxx">
-                <p class="seat">Enroll in a course?</p>
-                <form name="f2" action="enroll2.php" method="POST">
+                <p class="seat">Remove a course?</p>
+                <form name="f2" action="drop.php" method="POST">
                     <label class="seat">Enter Course ID</label>
                     <br />
                     <input type="text" name="bid" required />
                     <br />
-                    <input type="submit" name="bking" value="Enroll" class="btn" />
+                    <input type="submit" name="bking2" value="Delete" class="btn" />
                     <br />
                 </form>
             </div>
@@ -252,6 +255,20 @@ include('connect.php');
             </table>
         </div>
     </header>
+    <?php
+        }
+        else
+        {
+            ?>
+
+    <script>
+    alert("Error. Login Required");
+    </script>
+
+    <?php
+        echo "<script>window.location.href='index.php?'</script>";
+        }
+    ?>
 </body>
 
 </html>

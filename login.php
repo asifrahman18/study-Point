@@ -348,7 +348,7 @@ include('connect.php');
                 if($count==1)
                 {
                     $_SESSION['userID'] = $row['S_ID'];
-                    $_SESSION['password'] = $row['Pass'];
+                    // $_SESSION['password'] = $row['Pass'];
                     $_SESSION['mail'] = $row['Mail'];
                     $_SESSION['name'] = $row['Name'];
                     $_SESSION['gender'] = $row['Gender'];
@@ -380,7 +380,7 @@ include('connect.php');
                             $_SESSION['teacherID'] = $row['T_ID'];
                             // $_SESSION['teacherpass'] = $row['Pass'];
                             $_SESSION['mail'] = $row['Mail'];
-                            $_SESSION['name'] = $row['Name'];
+                            $_SESSION['tname'] = $row['Name'];
 
                             echo "<script>window.location.href='teacherProfile.php'</script>";
                         }

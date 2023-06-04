@@ -148,9 +148,6 @@ include('connect.php');
                     <?php
 
                         $tid = $_SESSION['teacherID'];
-                        // $_SESSION['mail'] = $row['Mail'];
-                        // $_SESSION['name'] = $row['Name'];
-
 
 
                       $query = "SELECT* FROM business where T_ID = $tid";
@@ -247,11 +244,7 @@ include('connect.php');
                     <?php
                           
                       }
-                      } else {
-                      echo "No course available";
                       }
-      
-                      exit();
           ?>
                 </tbody>
             </table>
