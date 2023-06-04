@@ -76,6 +76,10 @@ include('connect.php');
 </head>
 
 <body>
+    <?php
+        if($_SESSION['teacherID'] != NULL){
+    ?>
+
     <div class="container">
         <h1>Create Course</h1>
         <form action="createCourse.php" method="post">
@@ -118,6 +122,22 @@ include('connect.php');
     }
 
     ?>
+
+    <?php
+        }
+        else
+        {
+            ?>
+
+    <script>
+    alert("Error. Login Required");
+    </script>
+
+    <?php
+    echo "<script>window.location.href='index.php?'</script>";
+        }
+    ?>
+</body>
 </body>
 
 </html>

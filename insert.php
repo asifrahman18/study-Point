@@ -42,6 +42,11 @@ include('connect.php');
 </head>
 
 <body>
+    <?php
+        if($_SESSION['teacherID'] != NULL){
+    ?>
+
+
     <div class="">
         <form class="" action="insert.php" method="post" enctype="multipart/form-data">
             <label for="">Choose Your PDF File</label><br>
@@ -75,6 +80,21 @@ include('connect.php');
 
     </div>
 
+    <?php
+        }
+        else
+        {
+            ?>
+
+    <script>
+    alert("Error. Login Required");
+    </script>
+
+    <?php
+    echo "<script>window.location.href='index.php?'</script>";
+        }
+    ?>
+</body>
 </body>
 
 </html>

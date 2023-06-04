@@ -88,6 +88,9 @@ include('connect.php');
 </head>
 
 <body>
+    <?php
+        if($_SESSION['userID'] != NULL){
+    ?>
     <header>
         <div class="overlay">
             <div class="container">
@@ -159,11 +162,8 @@ include('connect.php');
                     <?php
                           
                       }
-                      } else {
-                      echo "No course available";
                       }
       
-                      exit();
   
   
           ?>
@@ -171,6 +171,22 @@ include('connect.php');
             </table>
         </div>
     </header>
+    <?php
+        }
+        else
+        {
+            ?>
+
+    <script>
+    alert("Error. Login Required");
+    </script>
+
+    <?php
+    echo "<script>window.location.href='index.php?'</script>";
+        }
+    ?>
 </body>
+</body>
+
 
 </html>

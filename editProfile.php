@@ -4,7 +4,6 @@ include('connect.php');
 ?>
 
 <!DOCTYPE html>
-<!-- Coding By CodingNepal - codingnepalweb.com -->
 <html lang="en">
 
 <head>
@@ -245,6 +244,9 @@ include('connect.php');
 </head>
 
 <body>
+    <?php
+        if($_SESSION['teacherID'] != NULL or $_SESSION['userID']!= NULL){
+    ?>
     <div class="container">
         <header>Edit Profile</header>
 
@@ -345,10 +347,23 @@ include('connect.php');
                     }
                 }
         }
-
-    
-
     ?>
+
+    <?php
+        }
+        else
+        {
+            ?>
+
+    <script>
+    alert("Error. Login Required");
+    </script>
+
+    <?php
+    echo "<script>window.location.href='index.php?'</script>";
+        }
+    ?>
+</body>
 </body>
 
 </html>

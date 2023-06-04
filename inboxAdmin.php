@@ -112,6 +112,9 @@ include('connect.php');
 </head>
 
 <body>
+    <?php
+        if($_SESSION['adminID'] != NULL){
+    ?>
     <div class="navbar">
         <ul>
             <li><a href="adminProfile.php">Home</a></li>
@@ -213,6 +216,21 @@ include('connect.php');
             </table>
         </ul>
     </div>
+    <?php
+        }
+        else
+        {
+            ?>
+
+    <script>
+    alert("Error. Login Required");
+    </script>
+
+    <?php
+    echo "<script>window.location.href='index.php?'</script>";
+        }
+    ?>
+</body>
 </body>
 
 </html>

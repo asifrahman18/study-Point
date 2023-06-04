@@ -3,8 +3,6 @@
 session_start();
 include('connect.php');
 
-
-
         
         $sid = $_SESSION['userID'];
         $course = $_SESSION['course'];

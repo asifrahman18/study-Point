@@ -41,6 +41,9 @@ include('connect.php');
 </head>
 
 <body>
+    <?php
+        if($_SESSION['teacherID'] != NULL){
+    ?>
     <!-- header section code start from here -->
     <header>
 
@@ -124,6 +127,21 @@ include('connect.php');
             </div>
         </div>
     </header>
+    <?php
+        }
+        else
+        {
+            ?>
+
+    <script>
+    alert("Error. Login Required");
+    </script>
+
+    <?php
+    echo "<script>window.location.href='index.php?'</script>";
+        }
+    ?>
+</body>
 </body>
 
 </html>
