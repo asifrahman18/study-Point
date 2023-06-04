@@ -97,7 +97,7 @@ include('connect.php');
                 <div class="row">
                     <div class="col-md-12">
                         <nav class="navbar navbar-expand-lg navbar-light">
-                            <a class="navbar-brand" href="#">জীবন যুদ্ধ | Teachers List</a>
+                            <a class="navbar-brand" href="#">জীবন যুদ্ধ | Course List</a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse"
                                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                                 aria-expanded="false" aria-label="Toggle navigation">
@@ -155,7 +155,7 @@ include('connect.php');
 
                     <tr>
                         <td><?php echo  $row["C_ID"]; ?></td>
-                        <td><?php echo  $row["name"]; ?></td>
+                        <td><?php echo  $row["C_Name"]; ?></td>
 
                     </tr>
 
