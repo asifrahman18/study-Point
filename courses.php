@@ -111,12 +111,6 @@ include('connect.php');
                                                 class="sr-only">(current)</span></a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">Teachers</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Students</a>
-                                    </li>
-                                    <li class="nav-item">
                                         <a class="nav-link" id="s-out" href="index.php">Sign Out</a>
                                     </li>
                                 </ul>
@@ -126,13 +120,13 @@ include('connect.php');
                 </div>
             </div>
             <div class="boxx">
-                <p class="seat">Enroll in a course?</p>
+                <p class="seat">View course contents?</p>
                 <form name="f2" action="enroll2.php" method="POST">
                     <label class="seat">Enter Course ID</label>
                     <br />
                     <input type="text" name="bid" required />
                     <br />
-                    <input type="submit" name="bking" value="Enroll" class="btn" />
+                    <input type="submit" name="bking" value="View" class="btn" />
                     <br />
                 </form>
             </div>

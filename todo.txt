@@ -17,10 +17,13 @@ Main Features:
     ⭕ Teacher: Inbox 
     ✅ Teacher: Edit Profile
     ✅ Teacher: Delete course
+    - Teacher: View their own material
+    - Teacher: Edit Course
 
 ------------------------------------------------------------------------------------------------------
 
     ✅ Admin: Delete Course
+    - Admin: View Course
 
 ------------------------------------------------------------------------------------------------------
 

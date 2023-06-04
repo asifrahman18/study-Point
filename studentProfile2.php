@@ -103,7 +103,7 @@ include('connect.php');
                         }
                         else{
                         ?>
-                        <h5>You are currently not enrolled in any courses. <a href="#">Enroll Now</a></h5>
+                        <h5>You are currently not enrolled in any courses. <a href="courses.php">Enroll Now</a></h5>
                         <?php
                         }
                         ?>
