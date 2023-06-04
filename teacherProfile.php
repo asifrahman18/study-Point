@@ -115,7 +115,7 @@ include('connect.php');
                         <?php
                         if($status == 'unverified'){
                         ?>
-                        <h5>You are not verified yet. Check status <a href="teacherInbox.php">Here</a></h5>
+                        <h5>You are not verified yet</h5>
                         <?php
                         }
                         else if ($status == 'verified') {

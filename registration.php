@@ -370,7 +370,7 @@ include('connect.php');
                     $row = $result->fetch_assoc();
                     if($count==1)
                     {
-                        $_SESSION['userID'] = $row['T_ID'];
+                        $_SESSION['teacherID'] = $row['T_ID'];
                         $_SESSION['password'] = $row['Pass'];
                         $_SESSION['mail'] = $row['Mail'];
                         $_SESSION['name'] = $row['Name'];
