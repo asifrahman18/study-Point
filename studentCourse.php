@@ -141,8 +141,9 @@ include('connect.php');
                 </thead>
                 <tbody>
                     <?php
-                      
-                      $stuID = $_SESSION['userID'];
+
+                    $stuID = $_SESSION['userID'];
+                    
                       $query = "SELECT * FROM enrolls, course WHERE enrolls.C_ID = course.C_ID AND enrolls.S_ID = $stuID AND Status = 'enrolled'";
                       
                       $data = mysqli_query($conn,$query);
@@ -155,7 +156,7 @@ include('connect.php');
 
                     <tr>
                         <td><?php echo  $row["C_ID"]; ?></td>
-                        <td><?php echo  $row["C_Name"]; ?></td>
+                        <td><?php echo  $row["name"]; ?></td>
 
                     </tr>
 
