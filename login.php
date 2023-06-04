@@ -371,7 +371,7 @@ include('connect.php');
                         if($count==1)
                         {
                             $_SESSION['teacherID'] = $row['T_ID'];
-                            $_SESSION['teacherpass'] = $row['Pass'];
+                            // $_SESSION['teacherpass'] = $row['Pass'];
                             $_SESSION['mail'] = $row['Mail'];
                             $_SESSION['name'] = $row['Name'];
 

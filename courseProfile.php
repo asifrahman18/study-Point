@@ -117,6 +117,32 @@ include('connect.php');
         cursor: pointer;
     }
 
+    .zigzag {
+        margin: 25px 0;
+        font-size: 0.9em;
+        font-family: sans-serif;
+        min-width: 400px;
+
+        margin-left: auto;
+        margin-right: auto;
+        border: 1px solid black;
+    }
+
+    .zigzag tbody tr {
+        border-bottom: 1px solid #dddddd;
+    }
+
+    .zigzag th,
+    .zigzag td {
+        padding: 12px 15px;
+        border: 1px solid rgb(255, 255, 255);
+    }
+
+    .zigzag td {
+        background-color: rgb(9, 54, 232);
+        color: #ffffff;
+    }
+
     .material-item .material-actions .delete-button {
         margin-left: 10px;
         padding: 5px 10px;
@@ -144,8 +170,7 @@ include('connect.php');
                 if(isset($_POST['bking'])){
 
                     $cid = $_POST['bid'];
-                    $_SESSION['c'] = $cid;
-                    $_SESSION['course'] = $cid;
+                    $_SESSION['courseID'] = $cid;
 
                     $sql2 = "SELECT * FROM engineering WHERE C_ID = $cid";
                     
@@ -155,6 +180,8 @@ include('connect.php');
                     if($count2==1)
                     {
                         $cat = $row2['category'];
+                        $courseName = $row2['C_Name'];
+                        $desc = $row2['description'];
                     }
                     else if($count2==0)
                     {
@@ -167,6 +194,8 @@ include('connect.php');
                         if($count==1)
                         {
                             $cat = $row['category'];
+                            $courseName = $row['C_Name'];
+                            $desc = $row['description'];
                         }
                         else if($count==0)
                         {
@@ -178,6 +207,8 @@ include('connect.php');
                             if($count1==1)
                             {
                                 $cat = $row1['category'];
+                                $courseName = $row1['C_Name'];
+                                $desc = $row1['description'];
                             }
                             else if($count1==0)
                             {
@@ -189,6 +220,8 @@ include('connect.php');
                                 if($count3==1)
                                 {
                                     $cat = $row3['category'];
+                                    $courseName = $row1['C_Name'];
+                                    $desc = $row1['description'];
                                 }
                                 else if($count3==0)
                                 {
@@ -208,13 +241,13 @@ include('connect.php');
 
 
     <div class="container">
-        <h2><?php echo  $_SESSION['name']; ?></h2>
+        <h2><?php echo  $courseName; ?></h2>
 
         <div class="course-info">
-            <h3>Course ID: <?php echo  $_SESSION['c']; ?></h3>
+            <h3>Course ID: <?php echo  $_SESSION['course']; ?></h3>
             <h3>Teacher: <?php echo  $_SESSION['tname']; ?></h3>
             <p>
-                <?php echo  $_SESSION['desc']; ?>
+                <?php echo  $desc; ?>
                 <br>
             </p>
         </div>
@@ -231,21 +264,29 @@ include('connect.php');
             </form>
         </div>
 
-
-        <ul class="material-list">
-            <?php
+        <table class="zigzag" id="tabl">
+            <thead>
+                <tr>
+                    <th class="headr"><b>Lecture Number</b></th>
+                    <th class="headr"><b>Lecture Name</b></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
 
             if(isset($_POST['bking']))                    
         {
-            $sql4 = "SELECT * FROM $cat WHERE C_ID = $cid";
+            // $sql4 = "SELECT * FROM $cat WHERE C_ID = $cid";
 
-            $result4 = mysqli_query($conn , $sql4);
-            $count4 = mysqli_num_rows($result4);
-            $row4 = $result4->fetch_assoc();
+            // $result4 = mysqli_query($conn , $sql4);
+            // $count4 = mysqli_num_rows($result4);
+            // $row4 = $result4->fetch_assoc();
 
-            $_SESSION['name'] = $row4['C_Name'];
-            $tid = $row4['T_ID'];
-            $_SESSION['desc'] = $row4['description'];
+            // $_SESSION['cName'] = $row4['C_Name'];
+            // $tid = $row4['T_ID'];
+            // $_SESSION['desc'] = $row4['description'];
+
+            $tid = $_SESSION['teacherID'];
 
             $sql5 = "SELECT Name FROM teacher WHERE T_ID = $tid";
 
@@ -256,26 +297,31 @@ include('connect.php');
             $_SESSION['tname'] = $row5['Name'];
 
 
-            $sql8 = "SELECT* FROM course WHERE C_ID = $cid";
-            $result8 = mysqli_query($conn , $sql8);
-            $count8 = mysqli_num_rows($result8);
-            $row8 = $result8->fetch_assoc();
+            $query = "SELECT* FROM course WHERE C_ID = $cid";
+            $data = mysqli_query($conn , $query);
+            $row8 = mysqli_fetch_array($data, MYSQLI_ASSOC);
+            $total = mysqli_num_rows($data);
 
-            while($row8 = $result8->fetch_assoc()) { ?>
+            // $count8 = mysqli_num_rows($result8);
+            // $row8 = $result8->fetch_assoc();
 
-            <li class="material-item">
-                <div class="material-name">Lecture <?php echo $row8['lecture'] ?>: <?php echo $row8['name'] ?> </div>
-                <div class="material-actions">
-                    <button class="edit-button">Edit</button>
-                    <button class="delete-button">Delete</button>
-                </div>
-            </li>
-            <?php
+            $result = $conn->query($query); if ($result->num_rows > 0) {
+                while($row8 = $result->fetch_assoc())
+                 { ?>
+                <tr>
+                    <td><?php echo  $row8["lecture"]; ?></td>
+                    <td><?php echo  $row8["name"]; ?></td>
+
+                </tr>
+                <?php
                   }
         }
+    }
 
     ?>
-        </ul>
+
+            </tbody>
+        </table>
     </div>
 
 </body>

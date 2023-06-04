@@ -84,7 +84,7 @@ include('connect.php');
     }
     </style>
 
-    <title>Student | Course List</title>
+    <title>Admin | Student</title>
 </head>
 
 <body>
@@ -94,7 +94,7 @@ include('connect.php');
                 <div class="row">
                     <div class="col-md-12">
                         <nav class="navbar navbar-expand-lg navbar-light">
-                            <a class="navbar-brand" href="#">জীবন যুদ্ধ | Course List</a>
+                            <a class="navbar-brand" href="#">জীবন যুদ্ধ | Teachers List</a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse"
                                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                                 aria-expanded="false" aria-label="Toggle navigation">
@@ -104,14 +104,8 @@ include('connect.php');
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul class="navbar-nav ml-auto">
                                     <li class="nav-item active">
-                                        <a class="nav-link" href="teacherProfile.php">Home <span
+                                        <a class="nav-link" href="studentProfile2.php">Home <span
                                                 class="sr-only">(current)</span></a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Teachers</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Students</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" id="s-out" href="index.php">Sign Out</a>
@@ -122,125 +116,78 @@ include('connect.php');
                     </div>
                 </div>
             </div>
+
             <div class="boxx">
-                <p class="seat">Edit a course?</p>
-                <form name="f2" action="courseProfile.php" method="POST">
+                <p class="seat">View a Course?</p>
+                <form name="f2" action="viewTeacher.php" method="POST">
                     <label class="seat">Enter Course ID</label>
                     <br />
                     <input type="text" name="bid" required />
                     <br />
-                    <input type="submit" name="bking" value="Enter" class="btn" />
+                    <input type="submit" name="bking" value="View" class="btn" />
                     <br />
                 </form>
             </div>
 
+
+            <!-- student delete -->
+
+            <?php
+                if(isset($_POST['bking'])){
+
+                    $user = $_POST['bid'];
+                    
+                    $sql = "SELECT * FROM teacher WHERE T_ID = $user";
+                    
+                    $result = mysqli_query($conn , $sql);
+                    $count = mysqli_num_rows($result);
+                    $row = $result->fetch_assoc();
+                    if($count==1)
+                    {
+
+                    $sql2 = "DELETE FROM teacher WHERE T_ID = $user";
+
+                    $result2 = mysqli_query($conn , $sql2);
+
+                    
+                    echo "<script>window.location.href='viewTeacher.php?deletion_confirm'</script>";
+                    }
+                    else
+                    {
+                    echo "You are not enrolled in this course";
+                    }
+                    
+                    
+                    }
+            ?>
 
             <table class="zigzag" id="tabl">
                 <thead>
                     <tr>
                         <th class="headr"><b>Course ID</b></th>
                         <th class="headr"><b>Course Name</b></th>
-                        <th class="headr"><b>Category</b></th>
-                        <th class="headr"><b>Description</b></th>
+                        <th class="headr"><b>Email</b></th>
+                        <th class="headr"><b>Status</b></th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-
-                        $tid = $_SESSION['teacherID'];
-                        // $_SESSION['mail'] = $row['Mail'];
-                        // $_SESSION['name'] = $row['Name'];
-
-
-
-                      $query = "SELECT* FROM business where T_ID = $tid";
+                      
+                      $query = "SELECT T_ID, Name, Mail, status FROM teacher WHERE 1";
                       
                       $data = mysqli_query($conn,$query);
                       $row = mysqli_fetch_array($data, MYSQLI_ASSOC); 
                       $total = mysqli_num_rows($data);
       
       
-                      $result = $conn->query($query); 
-                      if ($result->num_rows > 0) {
-                      while($row = $result->fetch_assoc()) 
-                      { ?>
+                      $result = $conn->query($query); if ($result->num_rows > 0) {
+                      while($row = $result->fetch_assoc()) { ?>
 
                     <tr>
-                        <td><?php echo  $row["C_ID"] ?></td>
-                        <td><?php echo  $row["C_Name"]; ?></td>
-                        <td><?php echo $row["category"]; ?></td>
-                        <td><?php echo $row["description"]; ?></td>
-
-                    </tr>
-
-                    <?php
-                          
-                      }
-                      }
-                      $query1 = "SELECT* FROM medical where T_ID = $tid";
-                      
-                      $data1 = mysqli_query($conn,$query1);
-                      $row1 = mysqli_fetch_array($data1, MYSQLI_ASSOC); 
-                      $total1 = mysqli_num_rows($data1);
-      
-      
-                      $result1 = $conn->query($query1); 
-                      if ($result1->num_rows > 0) {
-                      while($row1 = $result1->fetch_assoc()) 
-                      { ?>
-
-                    <tr>
-                        <td><?php echo  $row1["C_ID"]; ?></td>
-                        <td><?php echo  $row1["C_Name"]; ?></td>
-                        <td><?php echo  $row1["category"]; ?></td>
-                        <td><?php echo  $row1["description"]; ?></td>
-
-                    </tr>
-
-                    <?php
-                          
-                      }
-                      }
-                      $query2 = "SELECT* FROM engineering where T_ID = $tid";
-                      
-                      $data2 = mysqli_query($conn,$query2);
-                      $row2 = mysqli_fetch_array($data2, MYSQLI_ASSOC); 
-                      $total2 = mysqli_num_rows($data2);
-      
-      
-                      $result2 = $conn->query($query2); 
-                      if ($result2->num_rows > 0) {
-                      while($row2 = $result2->fetch_assoc()) 
-                      { ?>
-
-                    <tr>
-                        <td><?php echo  $row2["C_ID"];  ?></td>
-                        <td><?php echo  $row2["C_Name"]; ?></td>
-                        <td><?php echo  $row2["category"]; ?></td>
-                        <td><?php echo  $row2["description"]; ?></td>
-
-                    </tr>
-
-                    <?php
-                          
-                      }
-                      }
-                      $query3 = "SELECT* FROM general where T_ID = $tid";
-                      
-                      $data3 = mysqli_query($conn,$query3);
-                      $row3 = mysqli_fetch_array($data3, MYSQLI_ASSOC); 
-                      $total3 = mysqli_num_rows($data3);
-      
-      
-                      $result3 = $conn->query($query3); 
-                      if ($result3->num_rows > 0) {
-                      while($row3 = $result3->fetch_assoc()) 
-                      { ?>
-                    <tr>
-                        <td><?php echo  $row3["C_ID"]; ?></td>
-                        <td><?php echo  $row3["C_Name"]; ?></td>
-                        <td><?php echo  $row3["category"]; ?></td>
-                        <td><?php echo  $row3["description"]; ?></td>
+                        <td><?php echo  $row["T_ID"]; ?></td>
+                        <td><?php echo  $row["Name"]; ?></td>
+                        <td><?php echo  $row["Mail"]; ?></td>
+                        <td><?php echo  $row["status"]; ?></td>
 
                     </tr>
 
@@ -248,10 +195,12 @@ include('connect.php');
                           
                       }
                       } else {
-                      echo "No course available";
+                      echo "No teacher available";
                       }
       
                       exit();
+  
+  
           ?>
                 </tbody>
             </table>

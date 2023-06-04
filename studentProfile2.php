@@ -62,7 +62,7 @@ include('connect.php');
                                             class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">My Courses</a>
+                                    <a class="nav-link" href="studentCourse.php">My Courses</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="courses.php">Course List</a>
@@ -92,7 +92,7 @@ include('connect.php');
                         <?php
                         if($count>=1){
                         ?>
-                        <h5>You are enrolled in <a href="stdcourse.php"><?php echo $count ?> courses</a></h5>
+                        <h5>You are enrolled in <a href="studentCourse.php"><?php echo $count ?> courses</a></h5>
                         <?php
                         }
                         else{
