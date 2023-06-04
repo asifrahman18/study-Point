@@ -34,7 +34,9 @@ include('connect.php');
     
             $query0 = "DELETE FROM course WHERE C_ID = $course";
             $data0 = mysqli_query($conn , $query0);
-    
+
+            $query2 = "DELETE FROM enrolls WHERE C_ID = $course";
+            $data2 = mysqli_query($conn , $query2);
     
             $query1 = "DELETE FROM $cat WHERE C_ID = $course";
             $data1 = mysqli_query($conn , $query1);
@@ -49,6 +51,9 @@ include('connect.php');
 
             $query0 = "DELETE FROM course WHERE C_ID = $cid";
             $data0 = mysqli_query($conn , $query0);
+
+            $query2 = "DELETE FROM enrolls WHERE C_ID = $course";
+            $data2 = mysqli_query($conn , $query2);
 
             echo "<script>window.location.href='adminProfile.php?deleteSuccess'</script>";
     
