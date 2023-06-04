@@ -238,6 +238,7 @@ include('connect.php');
                     }
 
                     $_SESSION['catD'] = $cat;
+                    $_SESSION['cName'] = $courseName;
                 }
 
             ?>
@@ -261,8 +262,8 @@ include('connect.php');
             <form action="uploadForm.php" name="submit" method="POST">
                 <input type="submit" name="submit" value="Upload Material" class="action-button"></input>
             </form>
-            <form action="enroll.php" name="submit2" method="POST">
-                <input type="submit" name="submit2" value="Edit Course" class="action-button"></input>
+            <form action="display.php" name="submit2" method="POST">
+                <input type="submit" name="submit2" value="View Material" class="action-button"></input>
             </form>
             <form action="drop.php" name="submit3" method="POST">
                 <input type="submit" name="submit3" value="Delete Course" class="delete-button"></input>

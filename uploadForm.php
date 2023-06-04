@@ -79,7 +79,7 @@ include('connect.php');
     <div class="container">
         <h1>Upload Material</h1>
         <form action="uploadForm.php" method="post">
-            <label for="years">Course Name: <?php echo $_SESSION['name']; ?></label>
+            <label for="years">Course Name: <?php echo $_SESSION['cName']; ?></label>
 
             <label for="qualifications">Course ID: <?php echo $_SESSION['courseID']; ?></label>
 
