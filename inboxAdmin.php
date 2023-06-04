@@ -152,7 +152,7 @@ include('connect.php');
                 $row = $result->fetch_assoc();
                 if($count==1)
                 {
-                    $sql2 = "UPDATE teacher SET Status = 'Verified' WHERE Mail = '$user'";
+                    $sql2 = "UPDATE teacher SET Status = 'verified' WHERE Mail = '$user'";
                     $result2 = mysqli_query($conn , $sql2);
 
                     $sql3 = "DELETE FROM verification WHERE mail = '$user'";
