@@ -350,7 +350,7 @@ include('connect.php');
                     $_SESSION['userID'] = $row['S_ID'];
                     // $_SESSION['password'] = $row['Pass'];
                     $_SESSION['mail'] = $row['Mail'];
-                    $_SESSION['name'] = $row['Name'];
+                    $_SESSION['Sname'] = $row['Name'];
                     $_SESSION['gender'] = $row['Gender'];
     
                     echo "<script>window.location.href='studentProfile2.php'</script>";

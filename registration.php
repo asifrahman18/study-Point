@@ -4,7 +4,6 @@ include('connect.php');
 ?>
 
 <!DOCTYPE html>
-<!-- Coding By CodingNepal - codingnepalweb.com -->
 <html lang="en">
 
 <head>

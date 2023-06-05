@@ -84,7 +84,7 @@ include('connect.php');
     }
     </style>
 
-    <title>Student | Course List</title>
+    <title>Teacher | Course List</title>
 </head>
 
 <body>

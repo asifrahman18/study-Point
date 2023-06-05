@@ -240,7 +240,7 @@ include('connect.php');
     }
     </style>
 
-    <title>Regisration</title>
+    <title>Edit Profile</title>
 </head>
 
 <body>

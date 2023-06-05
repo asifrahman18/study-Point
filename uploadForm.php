@@ -7,7 +7,7 @@ include('connect.php');
 <html>
 
 <head>
-    <title>Verification Page</title>
+    <title>Upload Course</title>
     <style>
     body {
         background: linear-gradient(135deg, #71b7e6, #9b59b6);

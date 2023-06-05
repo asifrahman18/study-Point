@@ -92,7 +92,7 @@ include('connect.php');
                     <div class="banner-text">
                         <h1>WELCOME</h1>
                         <br>
-                        <h2><?php echo $_SESSION['name'] ?></h2>
+                        <h2><?php echo $_SESSION['Sname'] ?></h2>
                         <h6><?php echo $_SESSION['mail'] ?></h6>
                         <h5>Student ID: <?php echo $_SESSION['userID'] ?></h5>
                         <?php

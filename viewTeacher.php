@@ -84,7 +84,7 @@ include('connect.php');
     }
     </style>
 
-    <title>Admin | Student</title>
+    <title>Admin | Teacher</title>
 </head>
 
 <body>

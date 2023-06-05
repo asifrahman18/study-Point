@@ -7,7 +7,7 @@ include('connect.php');
 <html>
 
 <head>
-    <title>Course Profile</title>
+    <title>Student Course</title>
     <style>
     body {
         /* background-image: url("https://as1.ftcdn.net/v2/jpg/02/09/45/00/1000_F_209450029_lgIqRbGM5Fj9ChUUjxSYZjjCyHidpX8Q.jpg"); */
