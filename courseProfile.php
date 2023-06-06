@@ -263,7 +263,7 @@ include('connect.php');
                 <input type="submit" name="submit" value="Upload Material" class="action-button"></input>
             </form>
             <form action="display.php" name="submit2" method="POST">
-                <input type="submit" name="submit2" value="View Material" class="action-button"></input>
+                <input type="submit" name="submit2" value="View All Material" class="action-button"></input>
             </form>
             <form action="enrolled.php" name="submit1" method="POST">
                 <input type="submit" name="submit1" value="View Students" class="action-button"></input>
@@ -276,18 +276,20 @@ include('connect.php');
         <table class="zigzag" id="tabl">
             <thead>
                 <tr>
-                    <th class="headr"><b>Lecture Number</b></th>
-                    <th class="headr"><b>Lecture Name</b></th>
+                    <th class="headr"><b>Material Number</b></th>
+                    <th class="headr"><b>Material Name</b></th>
+                    <th class="headr"><b>Material Type</b></th>
+                    <th class="headr"><b></b></th>
                 </tr>
             </thead>
             <tbody>
                 <?php
 
-            if(isset($_POST['bking']))                    
+            if(isset($_POST['selected_id']))                    
         {
 
             $tid = $_SESSION['teacherID'];
-
+            $cid = $_POST['selected_id'];
 
 
             $query = "SELECT* FROM course WHERE C_ID = $cid";
@@ -304,7 +306,13 @@ include('connect.php');
                 <tr>
                     <td><?php echo  $row8["lecture"]; ?></td>
                     <td><?php echo  $row8["name"]; ?></td>
-
+                    <td><?php echo  $row8["type"]; ?></td>
+                    <td>
+                        <form method="post" action="display.php">
+                            <input type="hidden" name="selected_id" value="<?php echo $row8['lecture']; ?>">
+                            <button type="submit">View Material</Details></button>
+                        </form>
+                    </td>
                 </tr>
                 <?php
                   }

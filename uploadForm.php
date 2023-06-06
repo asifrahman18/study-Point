@@ -83,7 +83,14 @@ include('connect.php');
 
             <label for="qualifications">Course ID: <?php echo $_SESSION['courseID']; ?></label>
 
-            <label for="specialization">Lecture Number: </label>
+            <label for="specialization">Material Type </label>
+            <select name="mat" required>
+                <option disabled selected>Select</option>
+                <option>lecture</option>
+                <option>assignment</option>
+            </select>
+
+            <label for="specialization">Material Number </label>
             <input type="number" id="specialization" name="num" required />
 
             <label for="specialization">Lecture Name</label>
@@ -102,6 +109,7 @@ include('connect.php');
           $_SESSION['nem'] = $_POST['nem'];
           $_SESSION['lecture'] = $_POST['num'];
           $course = $_SESSION['courseID'];
+          $_SESSION['type'] = $_POST['mat'];
 
           $sql = "SELECT lecture FROM course WHERE lecture = $lec AND C_ID = $course";
 

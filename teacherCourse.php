@@ -111,12 +111,6 @@ include('connect.php');
                                                 class="sr-only">(current)</span></a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">Teachers</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Students</a>
-                                    </li>
-                                    <li class="nav-item">
                                         <a class="nav-link" id="s-out" href="index.php">Sign Out</a>
                                     </li>
                                 </ul>

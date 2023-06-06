@@ -288,8 +288,10 @@ include('connect.php');
         <table class="zigzag" id="tabl">
             <thead>
                 <tr>
-                    <th class="headr"><b>Lecture Number</b></th>
-                    <th class="headr"><b>Lecture Name</b></th>
+                    <th class="headr"><b>Material Number</b></th>
+                    <th class="headr"><b>Material Name</b></th>
+                    <th class="headr"><b>Material Type</b></th>
+                    <th class="headr"><b></b></th>
                 </tr>
             </thead>
             <tbody>
@@ -313,6 +315,13 @@ include('connect.php');
                 <tr>
                     <td><?php echo  $row8["lecture"]; ?></td>
                     <td><?php echo  $row8["name"]; ?></td>
+                    <td><?php echo  $row8["type"]; ?></td>
+                    <td>
+                        <form method="post" action="display.php">
+                            <input type="hidden" name="selected_id" value="<?php echo $row8['lecture']; ?>">
+                            <button type="submit">View Material</Details></button>
+                        </form>
+                    </td>
 
                 </tr>
                 <?php
