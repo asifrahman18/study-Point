@@ -120,7 +120,7 @@ include('connect.php');
                 </div>
             </div>
 
-            <div class="boxx">
+            <!-- <div class="boxx">
                 <p class="seat">View a Course?</p>
                 <form name="f2" action="studentCourse2.php" method="POST">
                     <label class="seat">Enter Course ID</label>
@@ -130,13 +130,14 @@ include('connect.php');
                     <input type="submit" name="bking" value="View" class="btn" />
                     <br />
                 </form>
-            </div>
+            </div> -->
 
             <table class="zigzag" id="tabl">
                 <thead>
                     <tr>
                         <th class="headr"><b>Course ID</b></th>
                         <th class="headr"><b>Course Name</b></th>
+                        <th class="headr"><b></b></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -157,6 +158,12 @@ include('connect.php');
                     <tr>
                         <td><?php echo  $row["C_ID"]; ?></td>
                         <td><?php echo  $row["name"]; ?></td>
+                        <td>
+                            <form method="post" action="studentCourse2.php">
+                                <input type="hidden" name="selected_id" value="<?php echo $row['C_ID']; ?>">
+                                <button type="submit">View</button>
+                            </form>
+                        </td>
 
                     </tr>
 

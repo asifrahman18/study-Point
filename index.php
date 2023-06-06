@@ -8,6 +8,7 @@ $_SESSION['teacherID'] = NULL;
 $_SESSION['teacherpass'] = NULL;
 $_SESSION['adminID'] = NULL;
 $_SESSION['adminpass'] = NULL;
+$_SESSION['tname'] = NULL;
 ?>
 
 

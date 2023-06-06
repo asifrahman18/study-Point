@@ -119,7 +119,7 @@ include('connect.php');
                     </div>
                 </div>
             </div>
-            <div class="boxx">
+            <!-- <div class="boxx">
                 <p class="seat">View course contents?</p>
                 <form name="f2" action="enroll2.php" method="POST">
                     <label class="seat">Enter Course ID</label>
@@ -129,7 +129,7 @@ include('connect.php');
                     <input type="submit" name="bking" value="View" class="btn" />
                     <br />
                 </form>
-            </div>
+            </div> -->
 
 
             <table class="zigzag" id="tabl">
@@ -139,6 +139,7 @@ include('connect.php');
                         <th class="headr"><b>Course Name</b></th>
                         <th class="headr"><b>Category</b></th>
                         <th class="headr"><b>Description</b></th>
+                        <th class="headr"><b></b></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -157,10 +158,16 @@ include('connect.php');
                       { ?>
 
                     <tr>
-                        <td><?php echo  $row["C_ID"] ?></td>
-                        <td><?php echo  $row["C_Name"]; ?></td>
+                        <td><?php echo $row["C_ID"] ?></td>
+                        <td><?php echo $row["C_Name"]; ?></td>
                         <td><?php echo $row["category"]; ?></td>
                         <td><?php echo $row["description"]; ?></td>
+                        <td>
+                            <form method="post" action="enroll2.php">
+                                <input type="hidden" name="selected_id" value="<?php echo $row['C_ID']; ?>">
+                                <button type="submit">View Details</Details></button>
+                            </form>
+                        </td>
 
                     </tr>
 
@@ -181,11 +188,16 @@ include('connect.php');
                       { ?>
 
                     <tr>
-                        <td><?php echo  $row1["C_ID"]; ?>
-                        </td>
+                        <td><?php echo  $row1["C_ID"]; ?></td>
                         <td><?php echo  $row1["C_Name"]; ?></td>
                         <td><?php echo  $row1["category"]; ?></td>
                         <td><?php echo  $row1["description"]; ?></td>
+                        <td>
+                            <form method="post" action="enroll2.php">
+                                <input type="hidden" name="selected_id" value="<?php echo $row1['C_ID']; ?>">
+                                <button type="submit">View Details</button>
+                            </form>
+                        </td>
 
                     </tr>
 
@@ -210,6 +222,12 @@ include('connect.php');
                         <td><?php echo  $row2["C_Name"]; ?></td>
                         <td><?php echo  $row2["category"]; ?></td>
                         <td><?php echo  $row2["description"]; ?></td>
+                        <td>
+                            <form method="post" action="enroll2.php">
+                                <input type="hidden" name="selected_id" value="<?php echo $row2['C_ID']; ?>">
+                                <button type="submit">View Detials</button>
+                            </form>
+                        </td>
 
                     </tr>
 
@@ -233,7 +251,12 @@ include('connect.php');
                         <td><?php echo  $row3["C_Name"]; ?></td>
                         <td><?php echo  $row3["category"]; ?></td>
                         <td><?php echo  $row3["description"]; ?></td>
-
+                        <td>
+                            <form method="post" action="enroll2.php">
+                                <input type="hidden" name="selected_id" value="<?php echo $row3['C_ID']; ?>">
+                                <button type="submit">View Details</button>
+                            </form>
+                        </td>
                     </tr>
 
                     <?php

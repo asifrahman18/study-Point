@@ -128,7 +128,7 @@ include('connect.php');
         <h1 class="title"><a href="display_pdf.php">View All Documents</a></h1>
         <ul class="notice-list">
 
-            <div class="boxx">
+            <!-- <div class="boxx">
                 <p class="seat">Verify a teacher?</p>
                 <form name="f2" action="inboxAdmin.php" method="POST">
                     <label class="seat">Enter Email ID</label>
@@ -138,12 +138,21 @@ include('connect.php');
                     <input type="submit" name="bking" value="Verify" class="btn" />
                     <br />
                 </form>
-            </div>
+            </div> -->
 
             <?php
-            if(isset($_POST['bking'])){
-                            
-                $user = $_POST['bid'];
+            // if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  
+            //     $selectedID = $_POST['selected_id'];
+
+            //     $_SESSION['testID'] = $selectedID;
+            
+            //     header('Location: test.php');
+            //     exit();
+            // }
+
+            if(isset($_POST['selected_id'])){
+                $user = $_POST['selected_id'];
                 
                 $sql = "SELECT T_ID FROM teacher WHERE Mail = '$user' and Status ='unverified'";
                 
@@ -176,6 +185,8 @@ include('connect.php');
                         <th class="headr"><b>Specialization</b></th>
                         <th class="headr"><b>Previous Experience</b></th>
                         <th class="headr"><b>Other Skills</b></th>
+                        <th class="headr"><b></b></th>
+                        <th class="headr"><b></b></th>
                     </tr>
                     </thead>
                     <?php
@@ -202,6 +213,18 @@ include('connect.php');
                             <td><?php echo $row["specialization"]; ?></td>
                             <td><?php echo $row["prevExp"]; ?></td>
                             <td><?php echo $row["other"]; ?></td>
+                            <td>
+                                <form method="post" action="#">
+                                    <input type="hidden" name="selected_id" value="<?php echo $row['mail']; ?>">
+                                    <button type="submit">Reject</button>
+                                </form>
+                            </td>
+                            <td>
+                                <form method="post" action="inboxAdmin.php">
+                                    <input type="hidden" name="selected_id" value="<?php echo $row['mail']; ?>">
+                                    <button type="submit">Verify</button>
+                                </form>
+                            </td>
                         </tr>
 
                         <?php

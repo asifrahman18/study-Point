@@ -170,9 +170,9 @@ include('connect.php');
         if($_SESSION['userID'] != NULL){
     ?>
     <?php
-                if(isset($_POST['bking'])){
+                if(isset($_POST['selected_id'])){
 
-                    $cid = $_POST['bid'];
+                    $cid = $_POST['selected_id'];
                     $_SESSION['course'] = $cid;
                     
                     $sql2 = "SELECT * FROM engineering WHERE C_ID = $cid";
@@ -235,9 +235,9 @@ include('connect.php');
 
     <?php
 
-        if(isset($_POST['bking']))                    
+        if(isset($_POST['selected_id']))                    
         {
-            $cid = $_POST['bid'];
+            $cid = $_POST['selected_id'];
             $sql4 = "SELECT * FROM $cat WHERE C_ID = $cid";
 
             $result4 = mysqli_query($conn , $sql4);
@@ -291,10 +291,10 @@ include('connect.php');
 
                 <?php
 
-            if(isset($_POST['bking']))                    
+            if(isset($_POST['selected_id']))                    
         {
 
-            $cid = $_POST['bid'];
+            $cid = $_POST['selected_id'];
             $query = "SELECT* FROM course WHERE C_ID = $cid";
             $data = mysqli_query($conn , $query);
             $row8 = mysqli_fetch_array($data, MYSQLI_ASSOC);

@@ -123,7 +123,7 @@ include('connect.php');
                 </div>
             </div>
 
-            <div class="boxx">
+            <!-- <div class="boxx">
                 <p class="seat">Remove a teacher?</p>
                 <form name="f2" action="viewTeacher.php" method="POST">
                     <label class="seat">Enter Teacher ID</label>
@@ -133,15 +133,15 @@ include('connect.php');
                     <input type="submit" name="bking" value="Remove" class="btn" />
                     <br />
                 </form>
-            </div>
+            </div> -->
 
 
-            <!-- student delete -->
+            <!-- teacher delete -->
 
             <?php
-                if(isset($_POST['bking'])){
+                if(isset($_POST['selected_id'])){
 
-                    $user = $_POST['bid'];
+                    $user = $_POST['selected_id'];
                     
                     $sql = "SELECT * FROM teacher WHERE T_ID = $user";
                     
@@ -174,6 +174,7 @@ include('connect.php');
                         <th class="headr"><b>Teacher Name</b></th>
                         <th class="headr"><b>Email</b></th>
                         <th class="headr"><b>Status</b></th>
+                        <th class="headr"><b></b></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -194,6 +195,12 @@ include('connect.php');
                         <td><?php echo  $row["Name"]; ?></td>
                         <td><?php echo  $row["Mail"]; ?></td>
                         <td><?php echo  $row["status"]; ?></td>
+                        <td>
+                            <form method="post" action="viewTeacher.php">
+                                <input type="hidden" name="selected_id" value="<?php echo $row['T_ID']; ?>">
+                                <button type="submit">Remove</button>
+                            </form>
+                        </td>
 
                     </tr>
 

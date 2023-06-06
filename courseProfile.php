@@ -169,9 +169,9 @@ include('connect.php');
         if($_SESSION['teacherID'] != NULL){
     ?>
     <?php
-                if(isset($_POST['bking'])){
+                if(isset($_POST['selected_id'])){
 
-                    $cid = $_POST['bid'];
+                    $cid = $_POST['selected_id'];
                     $_SESSION['courseID'] = $cid;
 
                     $sql2 = "SELECT * FROM engineering WHERE C_ID = $cid";
