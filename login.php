@@ -334,7 +334,6 @@ include('connect.php');
     </div>
 
     <?php
- 
             if(isset($_POST['submit']))
             {
                 $username= $_POST['email'];  

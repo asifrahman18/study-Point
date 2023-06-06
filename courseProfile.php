@@ -265,6 +265,9 @@ include('connect.php');
             <form action="display.php" name="submit2" method="POST">
                 <input type="submit" name="submit2" value="View Material" class="action-button"></input>
             </form>
+            <form action="enrolled.php" name="submit1" method="POST">
+                <input type="submit" name="submit1" value="View Students" class="action-button"></input>
+            </form>
             <form action="drop.php" name="submit3" method="POST">
                 <input type="submit" name="submit3" value="Delete Course" class="delete-button"></input>
             </form>
