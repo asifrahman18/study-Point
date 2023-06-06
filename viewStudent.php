@@ -82,6 +82,39 @@ include('connect.php');
         font-weight: bold;
         font-size: large;
     }
+
+    #button-88 {
+        margin: 5px;
+        padding: 8px 15px;
+        text-align: center;
+        text-transform: uppercase;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;
+        display: block;
+        border: 1px solid black;
+        font-weight: 700;
+        box-shadow: 0px 0px 14px -7px #f09819;
+        background-image: linear-gradient(45deg,
+                #9b9292 0%,
+                #ff0000 51%,
+                #000000 100%);
+        cursor: pointer;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+    }
+
+    #button-88:hover {
+        background-position: right center;
+        /* change the direction of the change here */
+        color: #fff;
+        text-decoration: none;
+    }
+
+    #button-88:active {
+        transform: scale(0.95);
+    }
     </style>
 
     <title>Admin | Student</title>
@@ -194,7 +227,7 @@ include('connect.php');
                         <td>
                             <form method="post" action="viewStudent.php">
                                 <input type="hidden" name="selected_id" value="<?php echo $row['S_ID']; ?>">
-                                <button type="submit">Remove</button>
+                                <button id="button-88" type="submit">Remove</button>
                             </form>
                         </td>
 

@@ -109,6 +109,36 @@ include('connect.php');
         border-radius: 5%;
     }
 
+    #button-86 {
+        margin: 2px;
+        padding: 8px 15px;
+        text-align: center;
+        text-transform: uppercase;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;
+        /* border-radius: 10px; */
+        display: block;
+        border: 0px;
+        font-weight: 700;
+        box-shadow: 0px 0px 14px -7px #f09819;
+        background-image: linear-gradient(45deg,
+                #9c1010 0%,
+                #0f32a5 51%,
+                #0d0f88 100%);
+        cursor: pointer;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+    }
+
+    #button-86:hover {
+        background-position: right center;
+        /* change the direction of the change here */
+        color: #fff;
+        text-decoration: none;
+    }
+
     #button-87 {
         margin: 5px;
         padding: 8px 15px;
@@ -117,12 +147,15 @@ include('connect.php');
         transition: 0.5s;
         background-size: 200% auto;
         color: white;
-        border-radius: 10px;
+        /* border-radius: 10px; */
         display: block;
         border: 0px;
         font-weight: 700;
         box-shadow: 0px 0px 14px -7px #f09819;
-        background-image: linear-gradient(45deg, #FF512F 0%, #F09819 51%, #FF512F 100%);
+        background-image: linear-gradient(45deg,
+                #a70b0b 0%,
+                #0f3fa5 51%,
+                #fc0101 100%);
         cursor: pointer;
         user-select: none;
         -webkit-user-select: none;
@@ -148,15 +181,15 @@ include('connect.php');
         transition: 0.5s;
         background-size: 200% auto;
         color: white;
-        border-radius: 10px;
+        /* border-radius: 10px; */
         display: block;
         border: 0px;
         font-weight: 700;
         box-shadow: 0px 0px 14px -7px #f09819;
         background-image: linear-gradient(45deg,
-                #1afd4b 0%,
-                #20c243 51%,
-                #0d882c 100%);
+                #a70b0b 0%,
+                #0f3fa5 51%,
+                #01fc16 100%);
         cursor: pointer;
         user-select: none;
         -webkit-user-select: none;
@@ -215,7 +248,7 @@ include('connect.php');
             if(isset($_POST['selected_id'])){
                 $user = $_POST['selected_id'];
                 
-                $sql = "SELECT T_ID FROM teacher WHERE Mail = '$user' and Status ='unverified'";
+                $sql = "SELECT T_ID FROM teacher WHERE Mail = '$user' AND Status ='unverified'";
                 
                 $result = mysqli_query($conn , $sql);
                 $count = mysqli_num_rows($result);
@@ -226,10 +259,10 @@ include('connect.php');
                     $result2 = mysqli_query($conn , $sql2);
 
                     $sql3 = "DELETE FROM verification WHERE mail = '$user'";
-                    $result2 = mysqli_query($conn , $sql3);
+                    $result3 = mysqli_query($conn , $sql3);
 
                     $sql4 = "DELETE FROM pdf_file WHERE mail = '$user'";
-                    $result2 = mysqli_query($conn , $sql4);
+                    $result4 = mysqli_query($conn , $sql4);
 
                     echo "<script>window.location.href='inboxAdmin.php?verification_confirm'</script>";
                 }
@@ -240,12 +273,13 @@ include('connect.php');
                 <thead>
                 <tbody>
                     <tr>
-                        <th class="headr"><b>Email</b></th>
+                        <th class="headr"><b>Email Address</b></th>
                         <th class="headr"><b>Experience</b></th>
                         <th class="headr"><b>Qualification</b></th>
                         <th class="headr"><b>Specialization</b></th>
-                        <th class="headr"><b>Previous Experience</b></th>
+                        <th class="headr"><b>Experience</b></th>
                         <th class="headr"><b>Other Skills</b></th>
+                        <th class="headr"><b>View Document</b></th>
                         <th class="headr"><b></b></th>
                         <th class="headr"><b></b></th>
                     </tr>
@@ -274,6 +308,12 @@ include('connect.php');
                             <td><?php echo $row["specialization"]; ?></td>
                             <td><?php echo $row["prevExp"]; ?></td>
                             <td><?php echo $row["other"]; ?></td>
+                            <td>
+                                <form method="post" action="display_pdf.php">
+                                    <input type="hidden" name="selected_id" value="<?php echo $row['mail']; ?>">
+                                    <button id="button-86" type="submit">View Document</button>
+                                </form>
+                            </td>
                             <td>
                                 <form method="post" action="viewTeacher.php">
                                     <input type="hidden" name="selected_id" value="<?php echo $row['mail']; ?>">

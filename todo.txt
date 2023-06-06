@@ -14,7 +14,6 @@ Main Features:
     ✅ Teacher: Course profile
     ✅ Teacher: Upload course material
     ✅ Teacher: My course list 
-    ⭕ Teacher: Inbox 
     ✅ Teacher: Edit Profile
     ✅ Teacher: Delete course
     - Teacher: View their own material
@@ -22,7 +21,7 @@ Main Features:
 
 ------------------------------------------------------------------------------------------------------
 
-    ✅ Admin: Delete Course
+    🔴 Admin: Delete Course
     - Admin: View Course
 
 ------------------------------------------------------------------------------------------------------

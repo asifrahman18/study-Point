@@ -82,7 +82,37 @@ include('connect.php');
         font-weight: bold;
         font-size: large;
     }
+
+    #button-88 {
+        margin: 5px;
+        padding: 4px 18px;
+        text-align: center;
+        text-transform: uppercase;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;
+        border-radius: 10px;
+        display: block;
+        border: 0px;
+        font-weight: 700;
+        box-shadow: 0px 0px 14px -7px #f09819;
+        background-image: linear-gradient(45deg,
+                #ff0000 0%,
+                #c6d310 51%,
+                #03b103 100%);
+        cursor: pointer;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+    }
+
+    #button-88:hover {
+        background-position: right center;
+        color: #fff;
+        text-decoration: none;
+    }
     </style>
+
 
     <title>Teacher | Course List</title>
 </head>
@@ -169,7 +199,7 @@ include('connect.php');
                         <td>
                             <form method="post" action="courseProfile.php">
                                 <input type="hidden" name="selected_id" value="<?php echo $row['C_ID']; ?>">
-                                <button type="submit">View</button>
+                                <button id="button-88" type="submit">View</button>
                             </form>
                         </td>
                     </tr>
@@ -198,7 +228,7 @@ include('connect.php');
                         <td>
                             <form method="post" action="courseProfile.php">
                                 <input type="hidden" name="selected_id" value="<?php echo $row1['C_ID']; ?>">
-                                <button type="submit">View</button>
+                                <button id="button-88" type="submit">View</button>
                             </form>
                         </td>
                     </tr>
@@ -227,7 +257,7 @@ include('connect.php');
                         <td>
                             <form method="post" action="courseProfile.php">
                                 <input type="hidden" name="selected_id" value="<?php echo $row2['C_ID']; ?>">
-                                <button type="submit">View</button>
+                                <button id="button-88" type="submit">View</button>
                             </form>
                         </td>
                     </tr>
@@ -255,7 +285,7 @@ include('connect.php');
                         <td>
                             <form method="post" action="courseProfile.php">
                                 <input type="hidden" name="selected_id" value="<?php echo $row3['C_ID']; ?>">
-                                <button type="submit">View</button>
+                                <button id="button-88" type="submit">View</button>
                             </form>
                         </td>
                     </tr>

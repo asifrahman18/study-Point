@@ -82,6 +82,39 @@ include('connect.php');
         font-weight: bold;
         font-size: large;
     }
+
+    #button-88 {
+        margin: 5px;
+        padding: 8px 15px;
+        text-align: center;
+        text-transform: uppercase;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;
+        display: block;
+        border: 1px solid yellow;
+        font-weight: 700;
+        box-shadow: 0px 0px 14px -7px #f09819;
+        background-image: linear-gradient(45deg,
+                #1900ff 0%,
+                #10d3c9 51%,
+                #03b129 100%);
+        cursor: pointer;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+    }
+
+    #button-88:hover {
+        background-position: right center;
+        /* change the direction of the change here */
+        color: #fff;
+        text-decoration: none;
+    }
+
+    #button-88:active {
+        transform: scale(0.95);
+    }
     </style>
 
     <title>Student | Course</title>
@@ -161,7 +194,7 @@ include('connect.php');
                         <td>
                             <form method="post" action="studentCourse2.php">
                                 <input type="hidden" name="selected_id" value="<?php echo $row['C_ID']; ?>">
-                                <button type="submit">View</button>
+                                <button id="button-88" type="submit">View</button>
                             </form>
                         </td>
 

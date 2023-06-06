@@ -24,7 +24,8 @@ include('connect.php');
 <body>
     <div class="div1">
         <?php
-      $sql="SELECT pdf from pdf_file";
+        $mail = $_POST['selected_id'];
+      $sql="SELECT pdf from pdf_file WHERE mail = '$mail'";
       $query=mysqli_query($conn,$sql);
       // $row = mysqli_fetch_array($query, MYSQLI_ASSOC);
       while ($info=mysqli_fetch_array($query)) {
