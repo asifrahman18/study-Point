@@ -82,6 +82,39 @@ include('connect.php');
         font-weight: bold;
         font-size: large;
     }
+
+    #button-88 {
+        margin: 5px;
+        padding: 8px 15px;
+        text-align: center;
+        text-transform: uppercase;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;
+        display: block;
+        border: 1px solid black;
+        font-weight: 700;
+        box-shadow: 0px 0px 14px -7px #f09819;
+        background-image: linear-gradient(45deg,
+                #9b9292 0%,
+                #ff0000 51%,
+                #000000 100%);
+        cursor: pointer;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+    }
+
+    #button-88:hover {
+        background-position: right center;
+        /* change the direction of the change here */
+        color: #fff;
+        text-decoration: none;
+    }
+
+    #button-88:active {
+        transform: scale(0.95);
+    }
     </style>
 
     <title>Admin | Course List</title>
@@ -125,9 +158,9 @@ include('connect.php');
                     </div>
                 </div>
             </div>
-            <div class="boxx">
+            <!-- <div class="boxx">
                 <p class="seat">Search a course?</p>
-                <form name="f2" action="drop.php" method="POST">
+                <form name="f2" action="adminCourse.php" method="POST">
                     <label class="seat">Enter Course ID</label>
                     <br />
                     <input type="text" name="bid" required />
@@ -135,7 +168,7 @@ include('connect.php');
                     <input type="submit" name="bking2" value="Search" class="btn" />
                     <br />
                 </form>
-            </div>
+            </div> -->
 
 
             <table class="zigzag" id="tabl">
