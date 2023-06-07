@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 04, 2023 at 01:49 PM
+-- Generation Time: Jun 07, 2023 at 06:59 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -53,6 +53,13 @@ CREATE TABLE `business` (
   `category` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `business`
+--
+
+INSERT INTO `business` (`C_ID`, `C_Name`, `T_ID`, `description`, `category`) VALUES
+(2004, 'Test', 5003, 'Test Description', 'Business');
+
 -- --------------------------------------------------------
 
 --
@@ -64,8 +71,21 @@ CREATE TABLE `course` (
   `lecture` int(10) NOT NULL,
   `pdf` varchar(300) NOT NULL,
   `name` varchar(200) NOT NULL,
-  `C_ID` int(10) NOT NULL
+  `C_ID` int(10) NOT NULL,
+  `type` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `course`
+--
+
+INSERT INTO `course` (`teacherID`, `lecture`, `pdf`, `name`, `C_ID`, `type`) VALUES
+(5003, 1, 'DOCTYPE-html.txt', 'JOY BANGLA', 4003, ''),
+(5003, 1, 'SDA_Batch_1_Pitch_Decks.pdf', 'Lol', 4004, ''),
+(5003, 2, 'binod.pdf', 'poco', 4004, ''),
+(5003, 1, 'cse311-assignment.pdf', 'Upload test', 3008, ''),
+(5003, 1, 'SDA_Batch_1_Pitch_Decks.pdf', 'Assignment 1', 3007, 'assignment'),
+(5003, 2, 'cse311-assignment.pdf', 'Lecture 2', 3007, 'lecture');
 
 -- --------------------------------------------------------
 
@@ -101,6 +121,13 @@ CREATE TABLE `enrolls` (
   `Status` varchar(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `enrolls`
+--
+
+INSERT INTO `enrolls` (`S_ID`, `C_ID`, `Status`) VALUES
+(101, 3008, 'enrolled');
+
 -- --------------------------------------------------------
 
 --
@@ -114,6 +141,14 @@ CREATE TABLE `general` (
   `description` varchar(200) NOT NULL,
   `category` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `general`
+--
+
+INSERT INTO `general` (`C_ID`, `C_Name`, `T_ID`, `description`, `category`) VALUES
+(4003, 'Politics', 5003, 'Joy Bangla', 'General'),
+(4004, 'Bangla', 5003, 'JOY BANGLA', 'General');
 
 -- --------------------------------------------------------
 
@@ -149,11 +184,10 @@ INSERT INTO `pdf_file` (`pdf`, `mail`) VALUES
 ('ER-Diagram.pdf', 'ppp@gmail.com'),
 ('L04_Draft.pdf', 'josim@uddin.com'),
 ('Lab Report Template.pdf', 'nasir@gmail.com'),
-('cse311-assignment.pdf', 'nasir@hossain.com'),
 ('', 'nafiz2025@gmail.com'),
 ('', 'nafiz2025@gmail.com'),
-('SDA_Batch_1_Pitch_Decks.pdf', 'lol@gmail.com'),
-('', 'nafiz2025@gmail.com');
+('', 'nafiz2025@gmail.com'),
+('cse311-assignment.pdf', 'teacher.est@gmail.co');
 
 -- --------------------------------------------------------
 
@@ -182,8 +216,7 @@ INSERT INTO `student` (`S_ID`, `Name`, `Mail`, `Gender`, `Pass`) VALUES
 (108, 'Farhana akhter', 'farhana123@gmail.com', 'Female', 'farhana123'),
 (109, 'Jannatul Ferdaus', 'jannat123@gmail.com', 'Female', 'jannatul123'),
 (110, 'Johnathon Wick', 'john123@gmail.com', 'Male', 'abcde'),
-(111, 'Nasir', 'nasir@gmail.com', 'Male', 'nasir123'),
-(112, 'p', 'testing@gmail.com', '', '789654');
+(111, 'Nasir', 'nasir@gmail.com', 'Male', 'nasir123');
 
 -- --------------------------------------------------------
 
@@ -218,8 +251,9 @@ INSERT INTO `teacher` (`T_ID`, `Name`, `Mail`, `Ph_No`, `Specialization`, `Pass`
 (5010, 'ppp', 'ppp@gmail.com', '01451296365', NULL, '4545', 'unverified'),
 (5011, 'jossim', 'josim@uddin.com', '01451296365', NULL, '8785', 'unverified'),
 (5012, 'Nasir', 'nasir@gmail.com', '01451296365', NULL, '789456', 'unverified'),
-(5013, 'Nasir hossain', 'nasir@hossain.com', '01451296365', 'OS', '585885', 'unverified'),
-(5014, 'lol', 'lol@gmail.com', '01451296365', '8', '7852', 'unverified');
+(5013, 'Nasir hossain', 'nasir@hossain.com', '01451296365', 'OS', '585885', 'verified'),
+(5015, 'testTeacher', 'teacher.est@gmail.com', '01451296365', 'Chemistry', '78963', 'unverified'),
+(5016, 'tews', 'test@test.com', '01451296365', '1', '4444', 'verified');
 
 -- --------------------------------------------------------
 
@@ -244,9 +278,8 @@ CREATE TABLE `verification` (
 INSERT INTO `verification` (`experience`, `qualification`, `specialization`, `prevExp`, `other`, `pdf`, `mail`) VALUES
 ('15', 'HSC', 'English', 'None', 'None', NULL, 'mail'),
 (NULL, NULL, NULL, NULL, NULL, 'hello', 'mail'),
-('1', 'none', 'OS', 'a lot', 'a lot', NULL, 'nasir@hossain.com'),
 ('', '', '', '', '', NULL, 'nafiz2025@gmail.com'),
-('8', '7', '8', '7', '7', NULL, 'lol@gmail.com');
+('1', 'BSC', 'Chemistry', 'None', 'Programming', NULL, 'teacher.est@gmail.co');
 
 --
 -- Indexes for dumped tables
@@ -302,7 +335,7 @@ ALTER TABLE `teacher`
 -- AUTO_INCREMENT for table `business`
 --
 ALTER TABLE `business`
-  MODIFY `C_ID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2004;
+  MODIFY `C_ID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2005;
 
 --
 -- AUTO_INCREMENT for table `engineering`
@@ -314,7 +347,7 @@ ALTER TABLE `engineering`
 -- AUTO_INCREMENT for table `general`
 --
 ALTER TABLE `general`
-  MODIFY `C_ID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4003;
+  MODIFY `C_ID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4005;
 
 --
 -- AUTO_INCREMENT for table `medical`
@@ -332,7 +365,7 @@ ALTER TABLE `student`
 -- AUTO_INCREMENT for table `teacher`
 --
 ALTER TABLE `teacher`
-  MODIFY `T_ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5015;
+  MODIFY `T_ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5017;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
