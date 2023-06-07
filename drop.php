@@ -45,9 +45,9 @@ include('connect.php');
     
     }
 
-    if(isset($_POST['bking2']))                    
+    if(isset($_POST['selected_id']))                    
         {
-            $cid = $_POST['bid'];
+            $cid = $_POST['selected_id'];
 
             $query0 = "DELETE FROM course WHERE C_ID = $cid";
             $data0 = mysqli_query($conn , $query0);

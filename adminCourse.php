@@ -126,13 +126,13 @@ include('connect.php');
                 </div>
             </div>
             <div class="boxx">
-                <p class="seat">Remove a course?</p>
+                <p class="seat">Search a course?</p>
                 <form name="f2" action="drop.php" method="POST">
                     <label class="seat">Enter Course ID</label>
                     <br />
                     <input type="text" name="bid" required />
                     <br />
-                    <input type="submit" name="bking2" value="Delete" class="btn" />
+                    <input type="submit" name="bking2" value="Search" class="btn" />
                     <br />
                 </form>
             </div>
@@ -145,6 +145,7 @@ include('connect.php');
                         <th class="headr"><b>Course Name</b></th>
                         <th class="headr"><b>Category</b></th>
                         <th class="headr"><b>Description</b></th>
+                        <th class="headr"><b></b></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -163,10 +164,16 @@ include('connect.php');
                       { ?>
 
                     <tr>
-                        <td><?php echo  $row["C_ID"] ?></td>
-                        <td><?php echo  $row["C_Name"]; ?></td>
+                        <td><?php echo $row["C_ID"] ?></td>
+                        <td><?php echo $row["C_Name"]; ?></td>
                         <td><?php echo $row["category"]; ?></td>
                         <td><?php echo $row["description"]; ?></td>
+                        <td>
+                            <form method="post" action="drop.php">
+                                <input type="hidden" name="selected_id" value="<?php echo $row['T_ID']; ?>">
+                                <button id="button-88" type="submit">Remove</button>
+                            </form>
+                        </td>
 
                     </tr>
 
@@ -192,6 +199,12 @@ include('connect.php');
                         <td><?php echo  $row1["C_Name"]; ?></td>
                         <td><?php echo  $row1["category"]; ?></td>
                         <td><?php echo  $row1["description"]; ?></td>
+                        <td>
+                            <form method="post" action="drop.php">
+                                <input type="hidden" name="selected_id" value="<?php echo $row1['T_ID']; ?>">
+                                <button id="button-88" type="submit">Remove</button>
+                            </form>
+                        </td>
 
                     </tr>
 
@@ -216,7 +229,12 @@ include('connect.php');
                         <td><?php echo  $row2["C_Name"]; ?></td>
                         <td><?php echo  $row2["category"]; ?></td>
                         <td><?php echo  $row2["description"]; ?></td>
-
+                        <td>
+                            <form method="post" action="drop.php">
+                                <input type="hidden" name="selected_id" value="<?php echo $row2['T_ID']; ?>">
+                                <button id="button-88" type="submit">Remove</button>
+                            </form>
+                        </td>
                     </tr>
 
                     <?php
@@ -239,7 +257,12 @@ include('connect.php');
                         <td><?php echo  $row3["C_Name"]; ?></td>
                         <td><?php echo  $row3["category"]; ?></td>
                         <td><?php echo  $row3["description"]; ?></td>
-
+                        <td>
+                            <form method="post" action="drop.php">
+                                <input type="hidden" name="selected_id" value="<?php echo $row3['T_ID']; ?>">
+                                <button id="button-88" type="submit">Remove</button>
+                            </form>
+                        </td>
                     </tr>
 
                     <?php
