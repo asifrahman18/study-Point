@@ -38,6 +38,7 @@ include('connect.php');
         font-size: 0.9em;
         font-family: sans-serif;
         min-width: 400px;
+        max-width: 1000px;
 
         margin-left: auto;
         margin-right: auto;
