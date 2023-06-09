@@ -144,7 +144,7 @@ include('connect.php');
                                         <a class="nav-link" href="viewTeacher.php">Teachers</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="viewStudent.php">Students</a>
+                                        <a class="nav-link" href="adminCourse.php">Course</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" id="s-out" href="index.php">Sign Out</a>
