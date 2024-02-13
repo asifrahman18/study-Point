@@ -34,7 +34,6 @@ Admin have access to a comprehensive users list, allowing them to monitor the en
   <li>Remove users (teacher & student)</li>
   <li>Remove any course</li>
   <li>Manage the whole system</li>
-  <li></li>
 </ul>
 
 <h1>Interface Screenshots</h1>
@@ -77,7 +76,7 @@ Admin have access to a comprehensive users list, allowing them to monitor the en
 
 ![7](/Documents/screenshots/7.png "")
 
-<h3>Home page (after verification) Page</h3>
+<h3>Home page (after verification)</h3>
 
 ![12](/Documents/screenshots/12.png "")
 
