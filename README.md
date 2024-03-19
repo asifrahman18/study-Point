@@ -1,6 +1,6 @@
 <h1>Introduction</h1>
 
-<b>StudyPoint</b> is a web-based E-learning platform. It is designed to meet the needs of educational institutions, teachers, and students alike. Whether you are a teacher, or a student, our platform offers a range of features to streamline the management and learning process.
+<b>StudyPoint</b> (formerly JibonJuddho) is a web-based E-learning platform. It is designed to meet the needs of educational institutions, teachers, and students alike. Whether you are a teacher, or a student, our platform offers a range of features to streamline the management and learning process.
 
 There are three types of users: Teacher, and Student and Admin.
 
